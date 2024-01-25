@@ -1,0 +1,4 @@
+repository "Outlaw Pursuit@CS377_Outlaws@cloud"
+  path "/"
+    br "/main"
+    co "/main"
