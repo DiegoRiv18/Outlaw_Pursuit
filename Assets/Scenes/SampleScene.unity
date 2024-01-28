@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpPower: 5
+  facingRight: 1
 --- !u!50 &1794399487
 Rigidbody2D:
   serializedVersion: 4
@@ -436,6 +437,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9853668, y: 1.5782328}
   m_EdgeRadius: 0
+--- !u!114 &1794399491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794399485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f7915af5daba94d935cd7846df0881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 1794399486}
+  BulletPrefab: {fileID: 2766700727542923477, guid: 2b5de67863f55584fba9a8472d21d64b, type: 3}
+  bulletSpeed: 50
 --- !u!1001 &5900569591333322582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -501,6 +517,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1794399486}
+    - targetCorrespondingSourceObject: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794399491}
   m_SourcePrefab: {fileID: 100100000, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
