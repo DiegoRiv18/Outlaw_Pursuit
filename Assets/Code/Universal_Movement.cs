@@ -8,7 +8,7 @@ public class Universal_Movement : MonoBehaviour
     public float speed;
     private float input;
     public float jumpPower;
-    private bool facingRight = true;
+    public bool facingRight = true;
     private bool jumping = false;
 
     // Start is called before the first frame update
