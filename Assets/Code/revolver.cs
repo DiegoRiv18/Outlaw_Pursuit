@@ -61,6 +61,7 @@ public class revolver : MonoBehaviour
 
         // Calculate the rotation angle in radians
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Debug.Log(angle);
         Quaternion rotation;
         if (player.info.facingRight)
         {

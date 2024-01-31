@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,6 +12,7 @@ public class Gunner : MonoBehaviour
     public GameObject BulletPrefab;
     public float bullSpeed = 10;
     public int hp;
+
 
     // Start is called before the first frame update
     void Start()
@@ -84,7 +86,6 @@ public class Gunner : MonoBehaviour
         //    //Debug.Log("Shooting left");
    //}
     }
-
     public void decHP(int amt)
     {
         hp -= amt;

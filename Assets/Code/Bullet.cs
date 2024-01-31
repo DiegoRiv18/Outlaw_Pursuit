@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+
     int bulDmg = 10;
+
     void OnBecameInvisible()
     {
  
