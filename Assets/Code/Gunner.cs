@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,11 +11,13 @@ public class Gunner : MonoBehaviour
     public Universal_Movement info;
     public GameObject BulletPrefab;
     public float bullSpeed = 10;
+    public int hp;
+
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        hp = 100;
     }
      
     // Update is called once per frame
@@ -81,5 +85,13 @@ public class Gunner : MonoBehaviour
 
         //    //Debug.Log("Shooting left");
    //}
+    }
+    public void decHP(int amt)
+    {
+        hp -= amt;
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+
+    int bulDmg = 10;
+
     void OnBecameInvisible()
     {
  
@@ -17,5 +20,15 @@ public class Bullet : MonoBehaviour
             Bullet.Destroy(gameObject);
         }
 
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Collision");
+        if (collision.GetComponent<Armadillo>() != null)
+        {
+            collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg);
+            Destroy(this.gameObject);
+        }
     }
 }
