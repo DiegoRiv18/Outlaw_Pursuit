@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    int bulDmg = 10;
+    public int bulDmg = 20;
 
     void OnBecameInvisible()
     {
@@ -24,10 +24,16 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision");
+        //Debug.Log("Collision");
         if (collision.GetComponent<Armadillo>() != null)
         {
             collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg);
+            Destroy(this.gameObject);
+        }
+
+        if (collision.GetComponent<GunGoon>() != null)
+        {
+            collision.gameObject.GetComponent<GunGoon>().decHealth(bulDmg);
             Destroy(this.gameObject);
         }
     }
