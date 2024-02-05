@@ -56,7 +56,7 @@ public class Gunner : MonoBehaviour
 
         float angle = Vector2.SignedAngle(transform.up, bulletDirection);
 
-        Debug.Log(angle);
+        //Debug.Log(angle);
         if ((info.facingRight && angle < 0) || (!info.facingRight && angle > 0))
         {
             var bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);

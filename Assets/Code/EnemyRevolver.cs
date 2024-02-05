@@ -2,24 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class revolver : MonoBehaviour
+public class EnemyRevolver : MonoBehaviour
 {
-    Gunner player;
+    public Gunner player;
+    public GunGoon goon;
     bool flipped;
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = FindAnyObjectByType<Gunner>();
-    }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 playerPos = player.transform.position;
+        //Get goon position to anchor gun
+        Vector2 goonPos = goon.transform.position;
 
-        if (!player.info.facingRight)
+        //If the player is to the left/right side of the goon, swap side of gun
+        if (player.transform.position.x < goon.transform.position.x)
         {
-            transform.position = new Vector2(playerPos.x - 1.1f, playerPos.y);
+            transform.position = new Vector2(goonPos.x - 1.1f, goonPos.y);
             if (!flipped)
             {
                 Flip();
@@ -28,21 +26,17 @@ public class revolver : MonoBehaviour
 
         else
         {
-            transform.position = new Vector2(playerPos.x + 1.1f, playerPos.y);
+            transform.position = new Vector2(goonPos.x + 1.1f, goonPos.y);
             if (flipped)
             {
-               Flip();
+                Flip();
             }
         }
 
-        // Get the mouse position in world coordinates
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f;
-
-        // Face the sprite towards the mouse position
-        FaceMouse(mousePosition);
+        // Face the gun to the player
+        FacePlayer(player.transform.position);
     }
-   
+
 
     private void Flip()
     //Function to flip the sprite
@@ -54,16 +48,16 @@ public class revolver : MonoBehaviour
 
     }
 
-    void FaceMouse(Vector3 targetPosition)
+    void FacePlayer(Vector3 targetPosition)
     {
-        // Calculate the direction vector from the current position to the mouse position
+        // Calculate the direction vector from the current position to the player position
         Vector3 direction = targetPosition - transform.position;
 
         // Calculate the rotation angle in radians
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         //Debug.Log(angle);
         Quaternion rotation;
-        if (player.info.facingRight)
+        if (goon.flip)
         {
             if (angle < 90 && angle > -90)
             {
@@ -104,4 +98,3 @@ public class revolver : MonoBehaviour
         transform.rotation = rotation;
     }
 }
-
