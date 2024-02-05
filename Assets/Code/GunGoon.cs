@@ -5,11 +5,21 @@ using UnityEngine;
 public class GunGoon : MonoBehaviour
 {
     public GameObject player;
+    public EnemyRevolver gun;
     public GameObject bulletPrefab;
-    public EnemyRevolver goonGun;
     public float bullSpeed = 10;
     public int health = 50;
     public bool flip = false;
+    float timer = 0;
+    public float CoolDownTime = 3;
+    private Vector2 OffsetToPlayer => player.transform.position - transform.position;
+    private Vector2 HeadingToPlayer => OffsetToPlayer.normalized;
+
+
+    private void OnBecameVisible()
+    {
+        timer = Time.time;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -26,40 +36,18 @@ public class GunGoon : MonoBehaviour
         }
 
         transform.localScale = scale;
+
+        if (Time.time > timer)
+        {
+            Shoot();
+            timer += CoolDownTime;
+        }
     }
     private void Shoot()
     {
-        // get position of player on screen
-        Vector2 playerPos = player.transform.position;
-
-
-        // set the bullet to spawn next to the player in the position they are facing
-
-        Vector2 bulletPos;
-
-        if (player.GetComponent<Universal_Movement>().facingRight)
-        {
-            bulletPos = goonGun.transform.GetChild(2).position;
-        }
-
-        else
-        {
-            bulletPos = goonGun.transform.GetChild(2).position;
-        }
-
-        // Direction bullet is shot
-        Vector2 bulletDirection = (playerPos - bulletPos).normalized;
-
-
-        float angle = Vector2.SignedAngle(transform.up, bulletDirection);
-
-        //Debug.Log(angle);
-        if ((player.GetComponent<Universal_Movement>().facingRight && angle < 0) || (!player.GetComponent<Universal_Movement>().facingRight && angle > 0))
-        {
-            var bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
-
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletDirection.x, bulletDirection.y) * bullSpeed;
-        }
+        var bulletPos = gun.transform.position;
+        var bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
+        bullet.GetComponent<Rigidbody2D>().velocity = HeadingToPlayer * bullSpeed;
 
     }
 
