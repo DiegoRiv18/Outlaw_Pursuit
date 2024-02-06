@@ -23,24 +23,27 @@ public class GunGoon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Face Player
-        Vector3 scale = transform.localScale;
-
-        if(player.transform.position.x > transform.position.x)
+        if(this.gameObject != null)
         {
-            scale.x = Mathf.Abs(scale.x) * (flip ? 1 : -1);
-        }
-        else
-        {
-            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? 1 : -1);
-        }
+            //Face Player
+            Vector3 scale = transform.localScale;
 
-        transform.localScale = scale;
+            if (player.transform.position.x > transform.position.x)
+            {
+                scale.x = Mathf.Abs(scale.x) * (flip ? 1 : -1);
+            }
+            else
+            {
+                scale.x = Mathf.Abs(scale.x) * -1 * (flip ? 1 : -1);
+            }
 
-        if (Time.time > timer)
-        {
-            Shoot();
-            timer += CoolDownTime;
+            transform.localScale = scale;
+
+            if (Time.time > timer)
+            {
+                Shoot();
+                timer += CoolDownTime;
+            }
         }
     }
     private void Shoot()
@@ -57,6 +60,7 @@ public class GunGoon : MonoBehaviour
         if (health <= 0)
         {
             Destroy(this.gameObject);
+            Destroy(gun);
         }
     }
 }
