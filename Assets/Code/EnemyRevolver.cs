@@ -11,6 +11,10 @@ public class EnemyRevolver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(goon == null)
+        {
+            Destroy(gameObject);
+        }
         //Get goon position to anchor gun
         Vector2 goonPos = goon.transform.position;
 
