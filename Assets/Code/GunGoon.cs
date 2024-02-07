@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunGoon : MonoBehaviour
@@ -7,48 +8,52 @@ public class GunGoon : MonoBehaviour
     public GameObject player;
     public EnemyRevolver gun;
     public GameObject bulletPrefab;
-    public float bullSpeed = 10;
+    public float bullSpeed = 15;
     public int health = 50;
+    public int range = 10;
     public bool flip = false;
-    float timer = 0;
-    public float CoolDownTime = 3;
+    private float timer;
+    public float CoolDownTime = 3f;
     private Vector2 OffsetToPlayer => player.transform.position - transform.position;
     private Vector2 HeadingToPlayer => OffsetToPlayer.normalized;
 
 
-    private void OnBecameVisible()
+    private void Start()
     {
         timer = Time.time;
     }
     // Update is called once per frame
     void Update()
     {
-        if(this.gameObject != null)
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) < range)
         {
-            //Face Player
-            Vector3 scale = transform.localScale;
-
-            if (player.transform.position.x > transform.position.x)
+            if (this.gameObject != null)
             {
-                scale.x = Mathf.Abs(scale.x) * (flip ? 1 : -1);
-            }
-            else
-            {
-                scale.x = Mathf.Abs(scale.x) * -1 * (flip ? 1 : -1);
-            }
+                //Face Player
+                Vector3 scale = transform.localScale;
 
-            transform.localScale = scale;
+                if (player.transform.position.x > transform.position.x)
+                {
+                    scale.x = Mathf.Abs(scale.x) * (flip ? 1 : -1);
+                }
+                else
+                {
+                    scale.x = Mathf.Abs(scale.x) * -1 * (flip ? 1 : -1);
+                }
 
-            if (Time.time > timer)
-            {
-                Shoot();
-                timer += CoolDownTime;
+                transform.localScale = scale;
+
+                if (Time.time > timer)
+                {
+                    Shoot();
+                    timer += Time.time + CoolDownTime;
+                }
             }
         }
     }
     private void Shoot()
     {
-        var bulletPos = gun.transform.position;
+        var bulletPos = gun.transform.GetChild(2).position;
         var bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = HeadingToPlayer * bullSpeed;
 

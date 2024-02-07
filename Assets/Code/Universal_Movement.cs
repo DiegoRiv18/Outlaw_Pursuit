@@ -43,7 +43,7 @@ public class Universal_Movement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Allow the player to jump once they touch the ground
-        if (collision.collider.CompareTag("Ground"))
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Cactus"))
         {
             jumping = false;
         }

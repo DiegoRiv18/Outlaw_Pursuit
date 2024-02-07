@@ -65,6 +65,7 @@ public class Gunner : MonoBehaviour
         }
        
     }
+   
     public void decHP(int amt)
     {
         hp -= amt;

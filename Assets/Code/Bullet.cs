@@ -24,6 +24,11 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.GetComponent<Gunner>() != null)
+        {
+            collision.gameObject.GetComponent<Gunner>().decHP(bulDmg);
+            Destroy(this.gameObject);
+        }
         //Debug.Log("Collision");
         if (collision.GetComponent<Armadillo>() != null)
         {
