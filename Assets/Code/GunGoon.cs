@@ -10,7 +10,7 @@ public class GunGoon : MonoBehaviour
     public GameObject bulletPrefab;
     public float bullSpeed = 15;
     public int health = 50;
-    public int range = 10;
+    public int range = 9;
     public bool flip = false;
     private float timer;
     public float CoolDownTime = 3f;
@@ -46,7 +46,7 @@ public class GunGoon : MonoBehaviour
                 if (Time.time > timer)
                 {
                     Shoot();
-                    timer += Time.time + CoolDownTime;
+                    timer = Time.time + CoolDownTime;
                 }
             }
         }
