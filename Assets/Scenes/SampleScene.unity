@@ -521,8 +521,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fcdd59c94d7ce4c8d7fa131d3720e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
 --- !u!58 &1624830693
 CircleCollider2D:
+=======
+  player: {fileID: 1794399485}
+  gun: {fileID: 2046525800}
+  bulletPrefab: {fileID: 2766700727542923477, guid: 2b5de67863f55584fba9a8472d21d64b, type: 3}
+  bullSpeed: 10
+  health: 50
+  range: 10
+  flip: 0
+  CoolDownTime: 1
+  moneyPrefab: {fileID: 5448404063826992005, guid: 23762c82a290eec46883f927c0d9d802, type: 3}
+--- !u!1 &1705583712
+GameObject:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
