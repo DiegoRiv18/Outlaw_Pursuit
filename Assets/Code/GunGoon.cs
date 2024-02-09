@@ -68,8 +68,6 @@ public class GunGoon : MonoBehaviour
             Destroy(gun);
             Instantiate(moneyPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            Destroy(this.gameObject);
-            Destroy(gun);
         }
     }
 }
