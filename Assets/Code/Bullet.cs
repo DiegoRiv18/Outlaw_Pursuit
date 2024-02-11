@@ -17,17 +17,17 @@ public class Bullet : MonoBehaviour
         Destroy(this.gameObject);
         if(collision.GetComponent<Gunner>() != null)
         {
-            collision.gameObject.GetComponent<Gunner>().decHP(bulDmg);
+            collision.gameObject.GetComponent<Gunner>().decHP(bulDmg + Shop.Singleton.getDmg());
         }
         //Debug.Log("Collision");
         if (collision.GetComponent<Armadillo>() != null)
         {
-            collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg);
+            collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg + Shop.Singleton.getDmg());
         }
 
         if (collision.GetComponent<GunGoon>() != null)
         {
-            collision.gameObject.GetComponent<GunGoon>().decHealth(bulDmg);
+            collision.gameObject.GetComponent<GunGoon>().decHealth(bulDmg + Shop.Singleton.getDmg());
         }
     }
 }
