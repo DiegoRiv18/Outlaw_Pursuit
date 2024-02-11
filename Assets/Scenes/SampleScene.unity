@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 74648655}
   - component: {fileID: 74648654}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Increase Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -941,8 +941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849602b15a1c2fc4594095c0ca1d7765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  upWeap: {fileID: 0}
+  bullet: {fileID: 74648654}
+  upWeap: {fileID: 1445201443}
 --- !u!114 &745782509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1208,7 +1208,7 @@ GameObject:
   - component: {fileID: 1445201444}
   - component: {fileID: 1445201443}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Weapon Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1667,7 +1667,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 'Bigger Gun
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
