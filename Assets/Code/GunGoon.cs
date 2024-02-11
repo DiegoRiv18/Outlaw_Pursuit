@@ -14,6 +14,7 @@ public class GunGoon : MonoBehaviour
     public bool flip = false;
     private float timer;
     public float CoolDownTime = 3f;
+    public GameObject moneyPrefab;
     private Vector2 OffsetToPlayer => player.transform.position - transform.position;
     private Vector2 HeadingToPlayer => OffsetToPlayer.normalized;
 
@@ -64,6 +65,7 @@ public class GunGoon : MonoBehaviour
         health -= hp;
         if (health <= 0)
         {
+            Instantiate(moneyPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             Destroy(gun);
         }

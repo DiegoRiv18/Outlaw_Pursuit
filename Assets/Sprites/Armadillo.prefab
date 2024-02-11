@@ -243,3 +243,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  moneyPrefab: {fileID: 7745838478663331769, guid: 566edbef412694347a6d10ef1976f255, type: 3}

@@ -11,6 +11,7 @@ public class Armadillo : MonoBehaviour
     float speed;
     private bool hit;
     int dmg = 20;
+    public GameObject moneyPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,7 @@ public class Armadillo : MonoBehaviour
         health -= hp;
         if (health <= 0)
         {
+            Instantiate(moneyPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
