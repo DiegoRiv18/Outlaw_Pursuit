@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 4344916700148618146}
   - component: {fileID: 420168419911775132}
   - component: {fileID: 8919828181277494496}
+  - component: {fileID: 5219876126297377342}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -361,6 +362,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5219876126297377342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020961497598579968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957359daaf2bec14bbf2811e5f7b0fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  gun: {fileID: 0}
+  bulletPrefab: {fileID: 2766700727542923477, guid: 2b5de67863f55584fba9a8472d21d64b, type: 3}
+  bullSpeed: 10
+  health: 50
+  range: 10
+  flip: 0
+  CoolDownTime: 2.5
+  moneyPrefab: {fileID: 7745838478663331769, guid: 566edbef412694347a6d10ef1976f255, type: 3}
 --- !u!1 &8859247064337007547
 GameObject:
   m_ObjectHideFlags: 0
