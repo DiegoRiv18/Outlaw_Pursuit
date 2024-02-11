@@ -26,7 +26,7 @@ public class Armadillo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x - player.transform.position.x < 3 && transform.position.y < -1.5 && !active)
+        if (transform.position.x - player.transform.position.x < 5 && transform.position.y < -1.5 && !active)
         {
             active = true;
             speed = -0.01f;
@@ -34,13 +34,13 @@ public class Armadillo : MonoBehaviour
         if (active)
         {
             transform.position = transform.position + transform.right * speed;
-            if (player.transform.position.x - transform.position.x < -4)
+            if (player.transform.position.x - transform.position.x < -4 && speed > -0.05f)
             {
-                speed -= 0.1f * Time.deltaTime;
+                speed -= 0.05f * Time.deltaTime;
             }
-            else if (player.transform.position.x - transform.position.x > 4)
+            else if (player.transform.position.x - transform.position.x > 4 && speed < 0.05f)
             {
-                speed += 0.1f * Time.deltaTime;
+                speed += 0.05f * Time.deltaTime;
             }
         }
     }
