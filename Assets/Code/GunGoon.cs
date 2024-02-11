@@ -66,8 +66,8 @@ public class GunGoon : MonoBehaviour
         if (health <= 0)
         {
             Instantiate(moneyPrefab, transform.position, Quaternion.identity);
+            Destroy(this.gun);
             Destroy(this.gameObject);
-            Destroy(gun);
         }
     }
 }

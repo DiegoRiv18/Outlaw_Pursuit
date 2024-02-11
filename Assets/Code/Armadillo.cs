@@ -6,7 +6,7 @@ using UnityEngine;
 public class Armadillo : MonoBehaviour
 {
     bool active;
-    int health;
+    public int health;
     public GameObject player;
     float speed;
     private bool hit;

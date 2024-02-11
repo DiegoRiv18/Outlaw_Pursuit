@@ -29,6 +29,15 @@ public class Gunner : MonoBehaviour
             Shoot();
         }
     }
+
+    public void buyHealth()
+    {
+        if (Shop.Singleton.chBal() >= 1)
+        {
+            hp += 50;
+            Shop.moneyUp(-1);
+        }
+    }
     private void Shoot()
     {
         // get position of mouse on screen
