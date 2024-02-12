@@ -64,41 +64,20 @@ public class revolver : MonoBehaviour
         //Debug.Log(angle);
         Quaternion rotation;
         if (player.info.facingRight)
-        {
-            if (angle < 90 && angle > -90)
-            {
+        { 
+      
                 rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            }
-
-            else if (angle > 90)
-            {
-                rotation = Quaternion.Euler(new Vector3(0, 0, 90f));
-            }
-
-            else
-            {
-                rotation = Quaternion.Euler(new Vector3(0, 0, -90f));
-            }
+            
         }
 
         else
         {
-            if (angle > 90 || angle < -90)
-            {
+            
+         
                 rotation = Quaternion.Euler(new Vector3(0, 0, angle + 180));
 
-            }
-
-            else if (angle > 0)
-            {
-                rotation = Quaternion.Euler(new Vector3(0, 0, 90f));
-            }
-
-            else
-            {
-                rotation = Quaternion.Euler(new Vector3(0, 0, -90f));
-            }
+        
         }
         // Apply the rotation to the sprite
         transform.rotation = rotation;

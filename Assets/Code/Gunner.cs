@@ -12,6 +12,7 @@ public class Gunner : MonoBehaviour
     public GameObject BulletPrefab;
     public float bullSpeed = 10;
     public int hp;
+    public HealthBar health_bar;
 
 
     // Start is called before the first frame update
@@ -78,6 +79,7 @@ public class Gunner : MonoBehaviour
     public void decHP(int amt)
     {
         hp -= amt;
+        health_bar.SetHealthBar(hp);
         if (hp <= 0)
         {
             Destroy(this.gameObject);
