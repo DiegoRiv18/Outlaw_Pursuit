@@ -13,12 +13,16 @@ public class Gunner : MonoBehaviour
     public float bullSpeed = 10;
     public int hp;
     public HealthBar health_bar;
+    int actChar;
+    SpriteRenderer baseColor;
 
 
     // Start is called before the first frame update
     void Start()
     {
         hp = 100;
+        actChar = 1;
+        baseColor = transform.Find("Square").GetComponent<SpriteRenderer>();
     }
      
     // Update is called once per frame
@@ -28,6 +32,23 @@ public class Gunner : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) 
         { 
             Shoot();
+        }
+        if (Input.GetKeyDown("l"))
+        {
+            actChar += 1;
+            if (actChar == 4) 
+            {
+                actChar = 1;
+                baseColor.color = new Color(1, 0.509804f, 0.1647059f, 1);
+            }
+            if (actChar == 2)
+            {
+                baseColor.color = Color.blue;
+            }
+            if (actChar == 3)
+            {
+                baseColor.color = Color.yellow;
+            }
         }
     }
 

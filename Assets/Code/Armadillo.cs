@@ -8,11 +8,12 @@ public class Armadillo : MonoBehaviour
     bool active;
     public int health;
     public GameObject player;
-    float speed;
+    public float speed;
     private bool hit;
     int dmg = 20;
     public GameObject moneyPrefab;
     Vector3 curr_rotation;
+    Vector3 rightvec;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class Armadillo : MonoBehaviour
         {
             active = true;
             speed = -0.02f;
+            rightvec = transform.right;
         }
 
         if (active)
@@ -41,7 +43,7 @@ public class Armadillo : MonoBehaviour
             curr_rotation.z = curr_rotation.z + 2f;
             transform.GetChild(1).eulerAngles = curr_rotation;
 
-            transform.position = transform.position + transform.right * speed;
+            transform.position = transform.position + rightvec * speed;
             if (player.transform.position.x - transform.position.x < -3 && speed > -0.05f)
             {
                 speed -= 0.05f * Time.deltaTime;
