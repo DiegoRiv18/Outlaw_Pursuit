@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Bullet : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class Bullet : MonoBehaviour
         if (collision.GetComponent<GunGoon>() != null)
         {
             collision.gameObject.GetComponent<GunGoon>().decHealth(bulDmg + Shop.Singleton.getDmg());
+        }
+
+        if (collision.GetComponent<Explosion>() != null)
+        {
+            collision.gameObject.GetComponent<Explosion>().yes();
         }
     }
 }

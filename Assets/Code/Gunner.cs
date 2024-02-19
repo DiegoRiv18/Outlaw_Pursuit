@@ -15,14 +15,22 @@ public class Gunner : MonoBehaviour
     public HealthBar health_bar;
     int actChar;
     SpriteRenderer baseColor;
+    int hpone;
+    int hptwo;
+    int hpthree;
+    SpriteRenderer seeGun;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        hpone = 100;
+        hptwo = 100;
+        hpthree = 100;
         hp = 100;
         actChar = 1;
         baseColor = transform.Find("Square").GetComponent<SpriteRenderer>();
+        seeGun = FindAnyObjectByType<revolver>().transform.Find("Square (1)").GetComponent<SpriteRenderer>();
     }
      
     // Update is called once per frame
@@ -31,7 +39,10 @@ public class Gunner : MonoBehaviour
         //Left Click on mouse
         if (Input.GetButtonDown("Fire1")) 
         { 
-            Shoot();
+            if (actChar != 3)
+            {
+                Shoot();
+            }
         }
         if (Input.GetKeyDown("l"))
         {
@@ -40,15 +51,48 @@ public class Gunner : MonoBehaviour
             {
                 actChar = 1;
                 baseColor.color = new Color(1, 0.509804f, 0.1647059f, 1);
+                info.speed = 5;
+                info.jumpPower = 8;
+                hpthree = hp;
+                hp = hpone;
+                health_bar.SetHealthBar(hp);
+                seeGun.enabled = true;
             }
             if (actChar == 2)
             {
                 baseColor.color = Color.blue;
+                info.speed = 3;
+                info.jumpPower = 6;
+                hpone = hp;
+                hp = hptwo;
+                health_bar.SetHealthBar(hp);
             }
             if (actChar == 3)
             {
                 baseColor.color = Color.yellow;
+                info.speed = 7;
+                info.jumpPower = 10;
+                hptwo = hp;
+                hp = hpthree;
+                health_bar.SetHealthBar(hp);
+                seeGun.enabled = false;
             }
+        }
+        if (Input.GetKeyDown("k"))
+        {
+            heal(1);
+        }
+    }
+
+    public void heal(int amt)
+    {
+        if (actChar == 2)
+        {
+            hpone += amt;
+            hptwo += amt;
+            hpthree += amt;
+            hp += amt;
+            health_bar.SetHealthBar(hp);
         }
     }
 
