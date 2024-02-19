@@ -6,7 +6,7 @@ using UnityEngine.XR;
 public class Bullet : MonoBehaviour
 {
 
-    public int bulDmg = 20;
+    public int bulDmg = 30;
 
     void OnBecameInvisible()
     {
