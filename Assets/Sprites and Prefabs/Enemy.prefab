@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957359daaf2bec14bbf2811e5f7b0fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+  player: {fileID: 0}
   gun: {fileID: 0}
   bulletPrefab: {fileID: 2766700727542923477, guid: 2b5de67863f55584fba9a8472d21d64b, type: 3}
   bullSpeed: 10
@@ -383,6 +383,7 @@ MonoBehaviour:
   flip: 0
   CoolDownTime: 2.5
   moneyPrefab: {fileID: 7745838478663331769, guid: 566edbef412694347a6d10ef1976f255, type: 3}
+  initialDelay: 0.75
 --- !u!1 &8859247064337007547
 GameObject:
   m_ObjectHideFlags: 0

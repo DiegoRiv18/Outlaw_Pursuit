@@ -17,6 +17,9 @@ public class GunGoon : MonoBehaviour
     public GameObject moneyPrefab;
     private Vector2 OffsetToPlayer => player.transform.position - transform.position;
     private Vector2 HeadingToPlayer => OffsetToPlayer.normalized;
+    public float initialDelay = 0.75f;  // Delay before firing for goons
+    private bool hasStartedShooting = false;
+
 
 
     private void Start()
@@ -44,10 +47,16 @@ public class GunGoon : MonoBehaviour
 
                 transform.localScale = scale;
 
-                if (Time.time > timer)
+                if (hasStartedShooting && Time.time > timer)
                 {
                     Shoot();
                     timer = Time.time + CoolDownTime;
+                }
+
+                if (!hasStartedShooting && Time.time > timer)
+                {
+                    hasStartedShooting = true;
+                    timer = Time.time + initialDelay;
                 }
             }
         }
