@@ -25,7 +25,6 @@ public class Gunner : MonoBehaviour
     float reloadDuration = 4f;
     public GameObject reloadingStatus;
 
-
     // Start is called before the first frame update
     void Start()
     {
