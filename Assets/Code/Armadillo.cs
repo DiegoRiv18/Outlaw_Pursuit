@@ -30,27 +30,29 @@ public class Armadillo : MonoBehaviour
     {
         curr_rotation = transform.GetChild(1).eulerAngles;
 
-
-        if (transform.position.x - player.transform.position.x < 8 && Mathf.Abs(transform.position.y - player.transform.position.y) < 2 && !active)
+        if (player != null)
         {
-            active = true;
-            speed = -0.02f;
-            rightvec = transform.right;
-        }
-
-        if (active)
-        {
-            curr_rotation.z = curr_rotation.z + 2f;
-            transform.GetChild(1).eulerAngles = curr_rotation;
-
-            transform.position = transform.position + rightvec * speed;
-            if (player.transform.position.x - transform.position.x < -3 && speed > -0.05f)
+            if (transform.position.x - player.transform.position.x < 8 && Mathf.Abs(transform.position.y - player.transform.position.y) < 2 && !active)
             {
-                speed -= 0.05f * Time.deltaTime;
+                active = true;
+                speed = -0.02f;
+                rightvec = transform.right;
             }
-            else if (player.transform.position.x - transform.position.x > 3 && speed < 0.05f)
+
+            if (active)
             {
-                speed += 0.05f * Time.deltaTime;
+                curr_rotation.z = curr_rotation.z + 2f;
+                transform.GetChild(1).eulerAngles = curr_rotation;
+
+                transform.position = transform.position + rightvec * speed;
+                if (player.transform.position.x - transform.position.x < -3 && speed > -0.05f)
+                {
+                    speed -= 0.05f * Time.deltaTime;
+                }
+                else if (player.transform.position.x - transform.position.x > 3 && speed < 0.05f)
+                {
+                    speed += 0.05f * Time.deltaTime;
+                }
             }
         }
     }

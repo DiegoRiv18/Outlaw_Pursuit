@@ -29,34 +29,37 @@ public class GunGoon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(transform.position.x - player.transform.position.x) < range)
+        if (player != null)
         {
-            if (this.gameObject != null)
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) < range)
             {
-                //Face Player
-                Vector3 scale = transform.localScale;
-
-                if (player.transform.position.x > transform.position.x)
+                if (this.gameObject != null)
                 {
-                    scale.x = Mathf.Abs(scale.x) * (flip ? 1 : -1);
-                }
-                else
-                {
-                    scale.x = Mathf.Abs(scale.x) * -1 * (flip ? 1 : -1);
-                }
+                    //Face Player
+                    Vector3 scale = transform.localScale;
 
-                transform.localScale = scale;
+                    if (player.transform.position.x > transform.position.x)
+                    {
+                        scale.x = Mathf.Abs(scale.x) * (flip ? 1 : -1);
+                    }
+                    else
+                    {
+                        scale.x = Mathf.Abs(scale.x) * -1 * (flip ? 1 : -1);
+                    }
 
-                if (hasStartedShooting && Time.time > timer)
-                {
-                    Shoot();
-                    timer = Time.time + CoolDownTime;
-                }
+                    transform.localScale = scale;
 
-                if (!hasStartedShooting && Time.time > timer)
-                {
-                    hasStartedShooting = true;
-                    timer = Time.time + initialDelay;
+                    if (hasStartedShooting && Time.time > timer)
+                    {
+                        Shoot();
+                        timer = Time.time + CoolDownTime;
+                    }
+
+                    if (!hasStartedShooting && Time.time > timer)
+                    {
+                        hasStartedShooting = true;
+                        timer = Time.time + initialDelay;
+                    }
                 }
             }
         }
