@@ -18,7 +18,8 @@ public class Gunner : MonoBehaviour
     int hpone;
     int hptwo;
     int hpthree;
-    SpriteRenderer seeGun;
+    //SpriteRenderer seeGun;
+    public GameObject Gun;
     bool canShoot = true;
     int shotCounter = 1; 
     float cooldownDuration = 0.25f;
@@ -35,7 +36,7 @@ public class Gunner : MonoBehaviour
         hp = 100;
         actChar = 1;
         baseColor = transform.Find("Square").GetComponent<SpriteRenderer>();
-        seeGun = FindAnyObjectByType<revolver>().transform.Find("Square (1)").GetComponent<SpriteRenderer>();
+        //seeGun = FindAnyObjectByType<revolver>().transform.Find("Square (1)").GetComponent<SpriteRenderer>();
     }
      
     // Update is called once per frame
@@ -72,7 +73,8 @@ public class Gunner : MonoBehaviour
                 hpthree = hp;
                 hp = hpone;
                 health_bar.SetHealthBar(hp);
-                seeGun.enabled = true;
+                //seeGun.enabled = true;
+                Gun.SetActive(true);
             }
             if (actChar == 2)
             {
@@ -91,7 +93,8 @@ public class Gunner : MonoBehaviour
                 hptwo = hp;
                 hp = hpthree;
                 health_bar.SetHealthBar(hp);
-                seeGun.enabled = false;
+                //seeGun.enabled = false;
+                Gun.SetActive(false);
             }
         }
         if (Input.GetKeyDown("e"))
