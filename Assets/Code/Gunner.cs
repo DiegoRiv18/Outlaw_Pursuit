@@ -19,11 +19,17 @@ public class Gunner : MonoBehaviour
     int hptwo;
     int hpthree;
     SpriteRenderer seeGun;
+    bool canShoot = true;
+    int shotCounter = 1; 
+    float cooldownDuration = 0.25f;
+    float reloadDuration = 4f;
+    public GameObject reloadingStatus;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        reloadingStatus.SetActive(false);
         hpone = 100;
         hptwo = 100;
         hpthree = 100;
@@ -36,12 +42,23 @@ public class Gunner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("r presed");
+            StartCoroutine(reload());
+
+        }
+
+
         //Left Click on mouse
-        if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1") && canShoot) 
         { 
             if (actChar != 3)
             {
+                StartCoroutine(ShootCooldown());
                 Shoot();
+                bulletcounter.ChangeAmmo(6 - shotCounter);
             }
         }
         if (Input.GetKeyDown("l"))
@@ -140,7 +157,40 @@ public class Gunner : MonoBehaviour
         }
        
     }
-   
+
+    private IEnumerator ShootCooldown()
+    {
+        canShoot = false; // Set to false to prevent shooting
+        if (shotCounter == 6) // Check if it's time to increase cooldown
+        {
+            reloadingStatus.SetActive(true);
+            yield return new WaitForSeconds(reloadDuration);
+            reloadingStatus.SetActive(false);
+            bulletcounter.ChangeAmmo(6);
+            shotCounter = 0;
+        }
+        else
+        {
+            yield return new WaitForSeconds(cooldownDuration);
+        }
+
+        canShoot = true; // Set back to true, allowing shooting again
+        shotCounter++; // Increment the shot counter
+    }
+
+    private IEnumerator reload()
+    {
+        reloadingStatus.SetActive(true);
+        canShoot = false; // Set to false to prevent shooting
+        yield return new WaitForSeconds(reloadDuration);
+        reloadingStatus.SetActive(false);
+        bulletcounter.ChangeAmmo(6);
+        shotCounter = 0;
+        canShoot = true; // Set back to true, allowing shooting again
+        shotCounter++; // Increment the shot counter
+
+    }
+
     public void decHP(int amt)
     {
         hp -= amt;

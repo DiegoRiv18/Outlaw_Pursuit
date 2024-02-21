@@ -19,7 +19,7 @@ public class Armadillo : MonoBehaviour
     void Start()
     {
         active = false;
-        health = 100;
+        health = 60;
         player = FindObjectOfType<Gunner>().gameObject;
         speed = 0;
         hit = false;
