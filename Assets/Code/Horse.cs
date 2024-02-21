@@ -1,18 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Horse : MonoBehaviour
 {
-    // Assign the destination point in the Unity Editor
-    public Transform teleportDestination;
+    public Transform hubTransform;
+    public Transform level1Transform;
+
+    public int selector = 1;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
-            // Teleport the player to the destination point
-            collision.collider.transform.position = teleportDestination.position;
+            switch (selector)
+            {
+                case 0:
+                    collision.collider.transform.position = hubTransform.position;
+                    break;
+                case 1:
+                    collision.collider.transform.position = level1Transform.position;
+                    break;
+            }
         }
+    }
+
+    public void SelectLevel(int location)
+    {
+        selector = location;
     }
 }

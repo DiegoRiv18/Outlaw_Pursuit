@@ -61,7 +61,7 @@ public class Gunner : MonoBehaviour
                 bulletcounter.ChangeAmmo(6 - shotCounter);
             }
         }
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown("q"))
         {
             actChar += 1;
             if (actChar == 4) 
@@ -95,7 +95,7 @@ public class Gunner : MonoBehaviour
                 seeGun.enabled = false;
             }
         }
-        if (Input.GetKeyDown("k"))
+        if (Input.GetKeyDown("e"))
         {
             heal(1);
         }

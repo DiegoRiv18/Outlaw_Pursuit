@@ -53,7 +53,7 @@ public class Universal_Movement : MonoBehaviour
 
 
         //If the player is in the air, don't allow more jumping
-        if (Input.GetButtonDown("Jump") && jumping == false)
+        if ((Input.GetButtonDown("Jump") && jumping == false) || (Input.GetKeyDown("w") && jumping == false))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumping = true;
