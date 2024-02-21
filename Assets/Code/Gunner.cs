@@ -191,6 +191,13 @@ public class Gunner : MonoBehaviour
 
     }
 
+    public void ResetHP()
+    {
+        hpone = hp;
+        hptwo = hp;
+        hpthree = hp;
+    }
+
     public void decHP(int amt)
     {
         hp -= amt;

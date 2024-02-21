@@ -4,6 +4,7 @@ public class Horse : MonoBehaviour
 {
     public Transform hubTransform;
     public Transform level1Transform;
+    public Gunner player;
 
     public int selector = 1;
 
@@ -11,6 +12,8 @@ public class Horse : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
+            player.ResetHP();
+
             switch (selector)
             {
                 case 0:
