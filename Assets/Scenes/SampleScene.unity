@@ -13361,6 +13361,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1794399491}
+    - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
       propertyPath: hubTransform
       value: 
       objectReference: {fileID: 1061808197}
@@ -16300,6 +16304,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1794399491}
     - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
       propertyPath: hubTransform
       value: 
