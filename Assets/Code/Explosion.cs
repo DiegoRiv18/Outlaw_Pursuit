@@ -18,5 +18,6 @@ public class Explosion : MonoBehaviour
     public void yes()
     {
         transform.GetChild(0).gameObject.SetActive(true);
+        Destroy(gameObject);
     }
 }

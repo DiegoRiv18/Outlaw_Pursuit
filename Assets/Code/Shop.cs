@@ -30,10 +30,11 @@ public class Shop : MonoBehaviour
 
     public void updmg()
     {
-        if (balance >= 1)
+        if (balance >= 10)
         {
             addDmg += 20;
-            balance -= 1;
+            balance -= 10;
+            CoinCounter.AddToScore(-10);
         }
     }
 

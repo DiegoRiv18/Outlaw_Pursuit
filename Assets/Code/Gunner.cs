@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Gunner : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class Gunner : MonoBehaviour
     public float bullSpeed = 10;
     public int hp;
     public HealthBar health_bar;
+    public HealthBar health_two;
+    public HealthBar health_three;
     int actChar;
     SpriteRenderer baseColor;
     int hpone;
@@ -24,6 +26,9 @@ public class Gunner : MonoBehaviour
     float cooldownDuration = 0.25f;
     float reloadDuration = 4f;
     public GameObject reloadingStatus;
+    Image hp2Co;
+    Image hp1Co;
+    Image hp3Co;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +40,9 @@ public class Gunner : MonoBehaviour
         hp = 100;
         actChar = 1;
         baseColor = transform.Find("Square").GetComponent<SpriteRenderer>();
+        hp1Co = health_bar.transform.Find("Fill").GetComponent<Image>();
+        hp2Co = health_two.transform.Find("Fill").GetComponent<Image>();
+        hp3Co = health_three.transform.Find("Fill").GetComponent<Image>();
     }
      
     // Update is called once per frame
@@ -71,7 +79,12 @@ public class Gunner : MonoBehaviour
                 hpthree = hp;
                 hp = hpone;
                 health_bar.SetHealthBar(hp);
+                health_two.SetHealthBar(hptwo);
+                health_three.SetHealthBar(hpthree);
                 Gun.SetActive(true);
+                hp2Co.color = Color.blue;
+                hp3Co.color = Color.yellow;
+                hp1Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
             }
             if (actChar == 2)
             {
@@ -81,6 +94,12 @@ public class Gunner : MonoBehaviour
                 hpone = hp;
                 hp = hptwo;
                 health_bar.SetHealthBar(hp);
+                health_two.SetHealthBar(hpthree);
+                health_three.SetHealthBar(hpone);
+                hp1Co.color = Color.blue;
+                hp2Co.color = Color.yellow;
+                hp3Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
+
             }
             if (actChar == 3)
             {
@@ -90,12 +109,17 @@ public class Gunner : MonoBehaviour
                 hptwo = hp;
                 hp = hpthree;
                 health_bar.SetHealthBar(hp);
+                health_two.SetHealthBar(hpone);
+                health_three.SetHealthBar(hptwo);
                 Gun.SetActive(false);
+                hp3Co.color = Color.blue;
+                hp1Co.color = Color.yellow;
+                hp2Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
             }
         }
         if (Input.GetKeyDown("e"))
         {
-            heal(1);
+            heal(10);
         }
     }
 
@@ -108,6 +132,8 @@ public class Gunner : MonoBehaviour
             hpthree += amt;
             hp += amt;
             health_bar.SetHealthBar(hp);
+            health_two.SetHealthBar(hpthree);
+            health_three.SetHealthBar(hpone);
         }
     }
 
