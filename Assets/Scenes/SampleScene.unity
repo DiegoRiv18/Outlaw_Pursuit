@@ -3817,63 +3817,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &424014101
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -106.81331
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.0761704
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820028977551121990, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7844965404113179356, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
-      propertyPath: m_Name
-      value: Armadillo (15)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c48efe9d1ab5b394dbfab07aa8db66a9, type: 3}
 --- !u!1001 &430548950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18243,5 +18186,4 @@ SceneRoots:
   - {fileID: 1627661256}
   - {fileID: 1686087082}
   - {fileID: 1246402676}
-  - {fileID: 424014101}
   - {fileID: 1847691491}
