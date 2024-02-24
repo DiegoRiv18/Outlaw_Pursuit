@@ -15169,6 +15169,7 @@ MonoBehaviour:
   health_three: {fileID: 1448800299}
   Gun: {fileID: 1890723670}
   reloadingStatus: {fileID: 563726739}
+  DeathScreen: {fileID: 434148767}
 --- !u!4 &1794399493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1568913707808040213, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
