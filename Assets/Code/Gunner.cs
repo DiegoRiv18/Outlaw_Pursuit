@@ -29,6 +29,7 @@ public class Gunner : MonoBehaviour
     Image hp2Co;
     Image hp1Co;
     Image hp3Co;
+    public GameObject DeathScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class Gunner : MonoBehaviour
         hp1Co = health_bar.transform.Find("Fill").GetComponent<Image>();
         hp2Co = health_two.transform.Find("Fill").GetComponent<Image>();
         hp3Co = health_three.transform.Find("Fill").GetComponent<Image>();
+        DeathScreen.SetActive(false);
     }
      
     // Update is called once per frame
@@ -230,5 +232,10 @@ public class Gunner : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        DeathScreen.SetActive(true);
     }
 }

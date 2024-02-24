@@ -17,28 +17,30 @@ public class EnemyRevolver : MonoBehaviour
         }
         //Get goon position to anchor gun
         Vector2 goonPos = goon.transform.position;
-
-        //If the player is to the left/right side of the goon, swap side of gun
-        if (player.transform.position.x < goon.transform.position.x)
+        if(player != null )
         {
-            transform.position = new Vector2(goonPos.x - 1.1f, goonPos.y);
-            if (!flipped)
+            //If the player is to the left/right side of the goon, swap side of gun
+            if (player.transform.position.x < goon.transform.position.x)
             {
-                Flip();
+                transform.position = new Vector2(goonPos.x - 1.1f, goonPos.y);
+                if (!flipped)
+                {
+                    Flip();
+                }
             }
-        }
 
-        else
-        {
-            transform.position = new Vector2(goonPos.x + 1.1f, goonPos.y);
-            if (flipped)
+            else
             {
-                Flip();
+                transform.position = new Vector2(goonPos.x + 1.1f, goonPos.y);
+                if (flipped)
+                {
+                    Flip();
+                }
             }
-        }
 
-        // Face the gun to the player
-        FacePlayer(player.transform.position);
+            // Face the gun to the player
+            FacePlayer(player.transform.position);
+        }
     }
 
 

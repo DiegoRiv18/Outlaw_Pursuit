@@ -17,19 +17,22 @@ public class ProximityText : MonoBehaviour
 
     private void Update()
     {
-        // Check the distance between the player and this object
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (player != null)
+        {
+            // Check the distance between the player and this object
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        // Show/hide the textCanvas based on the interactionDistance
-        if (distanceToPlayer <= interactionDistance)
-        {
-            // Display interaction text and enable canvas
-            textCanvas.SetActive(true);
-        }
-        else
-        {
-            // Hide interaction text and disable canvas
-            textCanvas.SetActive(false);
+            // Show/hide the textCanvas based on the interactionDistance
+            if (distanceToPlayer <= interactionDistance)
+            {
+                // Display interaction text and enable canvas
+                textCanvas.SetActive(true);
+            }
+            else
+            {
+                // Hide interaction text and disable canvas
+                textCanvas.SetActive(false);
+            }
         }
     }
 }

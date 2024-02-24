@@ -15,32 +15,34 @@ public class revolver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 playerPos = player.transform.position;
-
-        if (!player.info.facingRight)
+        if (player != null)
         {
-            transform.position = new Vector2(playerPos.x - 1.1f, playerPos.y);
-            if (!flipped)
+            Vector2 playerPos = player.transform.position;
+
+            if (!player.info.facingRight)
             {
-                Flip();
+                transform.position = new Vector2(playerPos.x - 1.1f, playerPos.y);
+                if (!flipped)
+                {
+                    Flip();
+                }
             }
-        }
 
-        else
-        {
-            transform.position = new Vector2(playerPos.x + 1.1f, playerPos.y);
-            if (flipped)
+            else
             {
-               Flip();
+                transform.position = new Vector2(playerPos.x + 1.1f, playerPos.y);
+                if (flipped)
+                {
+                    Flip();
+                }
             }
+            // Get the mouse position in world coordinates
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0f;
+
+            // Face the sprite towards the mouse position
+            FaceMouse(mousePosition);
         }
-
-        // Get the mouse position in world coordinates
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f;
-
-        // Face the sprite towards the mouse position
-        FaceMouse(mousePosition);
     }
    
 
