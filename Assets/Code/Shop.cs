@@ -14,6 +14,15 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Singleton != null && Singleton != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Singleton = this;
+        DontDestroyOnLoad(this.gameObject);
+
         Singleton = this;
         balance = 0;
         addDmg = 0;

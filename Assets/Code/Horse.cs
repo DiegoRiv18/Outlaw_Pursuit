@@ -6,7 +6,7 @@ public class Horse : MonoBehaviour
     public Transform level1Transform;
     public Gunner player;
 
-    public int selector = 1;
+    public int selector = 2;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,10 +17,13 @@ public class Horse : MonoBehaviour
             switch (selector)
             {
                 case 0:
-                    collision.collider.transform.position = hubTransform.position;
+                    ScenesManager.instance.LoadScene(ScenesManager.Scene.Tutorial);
                     break;
                 case 1:
-                    collision.collider.transform.position = level1Transform.position;
+                    ScenesManager.instance.LoadScene(ScenesManager.Scene.Hub);
+                    break;
+                case 2:
+                    ScenesManager.instance.LoadScene(ScenesManager.Scene.Level1);
                     break;
             }
         }

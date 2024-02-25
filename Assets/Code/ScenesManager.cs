@@ -15,7 +15,9 @@ public class ScenesManager : MonoBehaviour
     public enum Scene
     {
         MainMenu,
-        SampleScene
+        Tutorial,
+        Hub,
+        Level1
     }
 
     public void LoadScene(Scene scene)
@@ -25,12 +27,7 @@ public class ScenesManager : MonoBehaviour
 
     public void LoadNewGame()
     {
-        SceneManager.LoadScene(Scene.SampleScene.ToString());
-    }
-
-    public void LoadNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(Scene.Tutorial.ToString());
     }
 
     public void LoadMainMenu()
