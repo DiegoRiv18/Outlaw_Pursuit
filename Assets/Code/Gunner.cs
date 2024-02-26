@@ -23,6 +23,9 @@ public class Gunner : MonoBehaviour
     int hpcap;
     public GameObject Gun;
     bool canShoot = true;
+    bool canHeal = true;
+    bool canShield = true;
+    bool canSwitch = true;
     int shotCounter = 1; 
     float cooldownDuration = 0.25f;
     float reloadDuration = 4f;
@@ -31,6 +34,9 @@ public class Gunner : MonoBehaviour
     Image hp1Co;
     Image hp3Co;
     public GameObject DeathScreen;
+    public LineRenderer shield;
+    public Text Heal;
+    public Text Shield;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +53,10 @@ public class Gunner : MonoBehaviour
         hp3Co = health_three.transform.Find("Fill").GetComponent<Image>();
         DeathScreen.SetActive(false);
         hpcap = 100;
+        shield = transform.Find("Line").GetComponent<LineRenderer>();
+        shield.enabled = false;
+        Heal.enabled = false;
+        Shield.enabled = false;
     }
      
     // Update is called once per frame
@@ -77,48 +87,62 @@ public class Gunner : MonoBehaviour
         }
         if (Input.GetKeyDown("e"))
         {
-            heal(10);
+            if (actChar == 2 && canHeal == true)
+            {
+                StartCoroutine(HealCooldown());
+                heal(10);
+            }
+            if (actChar == 3 && canShield == true)
+            {
+                StartCoroutine(ShieldCooldown());
+                shieldUp();
+            }
         }
     }
 
     public void ultSwitch()
     {
-        actChar += 1;
-        if (actChar == 4)
+        if (canSwitch == true)
         {
-            if (hpone > 0)
+            StartCoroutine(SwitchCooldown());
+            actChar += 1;
+            if (actChar == 4)
             {
-                switch1();
+                if (hpone > 0)
+                {
+                    switch1();
+                }
+                else if (hptwo > 0)
+                {
+                    switch2();
+                }
             }
-            else if (hptwo > 0)
+            else if (actChar == 2)
             {
-                switch2();
-            }
-        }
-        else if (actChar == 2)
-        {
-            if (hptwo > 0)
-            {
-                switch2();
-            }
-            else if (hpthree > 0)
-            {
-                switch3();
-            }
+                if (hptwo > 0)
+                {
+                    switch2();
+                }
+                else if (hpthree > 0)
+                {
+                    switch3();
+                }
 
-        }
-        else if (actChar == 3)
-        {
-            if (hpthree > 0)
-            {
-                switch3();
             }
-            else if (hpone > 0)
+            else if (actChar == 3)
             {
-                switch1();
+                if (hpthree > 0)
+                {
+                    switch3();
+                }
+                else if (hpone > 0)
+                {
+                    switch1();
+                }
             }
         }
     }
+
     public void switch1()
     {
         actChar = 1;
@@ -169,7 +193,6 @@ public class Gunner : MonoBehaviour
 
     public void switch3()
     {
-        Debug.Log(hp);
         actChar = 3;
         baseColor.color = Color.yellow;
         info.speed = 7;
@@ -193,8 +216,6 @@ public class Gunner : MonoBehaviour
     }
     public void heal(int amt)
     {
-        if (actChar == 2)
-        {
             if (hpone > 0)
             {
                 hpone += amt;
@@ -224,7 +245,11 @@ public class Gunner : MonoBehaviour
                 hp = hpcap;
             }
             health_bar.SetHealthBar(hp);
-        }
+    }
+
+    public void shieldUp()
+    {
+            shield.enabled = true;
     }
 
     public void buyHealth()
@@ -270,6 +295,33 @@ public class Gunner : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletDirection.x, bulletDirection.y) * bullSpeed;
         }
        
+    }
+
+    private IEnumerator HealCooldown()
+    {
+        canHeal = false;
+        yield return new WaitForSeconds(5);
+        canHeal = true;
+        Heal.enabled = true;
+        yield return new WaitForSeconds(2);
+        Heal.enabled = false;
+    }
+
+    private IEnumerator SwitchCooldown()
+    {
+        canSwitch = false;
+        yield return new WaitForSeconds(1);
+        canSwitch = true;
+    }
+
+    private IEnumerator ShieldCooldown()
+    {
+        canShield = false;
+        yield return new WaitForSeconds(5);
+        canShield = true;
+        Shield.enabled = true;
+        yield return new WaitForSeconds(2);
+        Shield.enabled = false;
     }
 
     private IEnumerator ShootCooldown()

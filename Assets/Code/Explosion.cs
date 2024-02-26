@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    public GameObject ExplosionPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +16,18 @@ public class Explosion : MonoBehaviour
     {
         
     }
-    public void yes()
+
+    public void boom()
     {
-        transform.GetChild(0).gameObject.SetActive(true);
-        Destroy(gameObject);
+        GameObject bam = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
+        StartCoroutine(WaitEx(bam));
     }
+
+    private IEnumerator WaitEx(GameObject bam)
+    {
+        yield return new WaitForSeconds(0.1f);
+        Destroy(bam.gameObject);
+        Destroy(this.gameObject);
+    }
+
 }

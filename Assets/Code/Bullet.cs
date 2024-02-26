@@ -18,7 +18,15 @@ public class Bullet : MonoBehaviour
         Destroy(this.gameObject);
         if(collision.GetComponent<Gunner>() != null)
         {
-            collision.gameObject.GetComponent<Gunner>().decHP(bulDmg + Shop.Singleton.getDmg());
+            Gunner gunman = collision.gameObject.GetComponent<Gunner>();
+            if(gunman.shield.enabled == true)
+            {
+                gunman.shield.enabled = false;
+            }
+            else
+            {
+                gunman.decHP(bulDmg);
+            }
         }
         //Debug.Log("Collision");
         if (collision.GetComponent<Armadillo>() != null)
@@ -33,7 +41,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.GetComponent<Explosion>() != null)
         {
-            collision.gameObject.GetComponent<Explosion>().yes();
+            collision.gameObject.GetComponent<Explosion>().boom();
         }
     }
 }
