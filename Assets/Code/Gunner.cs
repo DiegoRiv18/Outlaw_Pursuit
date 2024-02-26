@@ -236,6 +236,9 @@ public class Gunner : MonoBehaviour
 
     private void OnDestroy()
     {
-        DeathScreen.SetActive(true);
+        if (this.gameObject != null)
+        {
+            DeathScreen.SetActive(true);
+        }
     }
 }
