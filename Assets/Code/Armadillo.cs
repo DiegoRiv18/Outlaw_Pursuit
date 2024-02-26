@@ -72,7 +72,20 @@ public class Armadillo : MonoBehaviour
         if (collision.GetComponent<Gunner>() != null && !hit)
         {
             hit = true;
-            collision.gameObject.GetComponent<Gunner>().decHP(dmg);
+            Gunner gunman = collision.gameObject.GetComponent<Gunner>();
+            if (gunman.shield.enabled == true)
+            {
+                gunman.shield.enabled = false;
+            }
+            else
+            {
+                UnityEngine.Debug.Log("hit");
+                gunman.decHP(dmg);
+            }
+        }
+        if (collision.GetComponent<ExplosionRange>() != null)
+        {
+            decHealth(100);
         }
     }
 

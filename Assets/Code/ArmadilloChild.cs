@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class ArmadilloChild : MonoBehaviour
 {
+    /*
     private bool hit = false;
     int dmg = 20;
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class ArmadilloChild : MonoBehaviour
     {
         
     }
-
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Gunner>() != null && !hit)
@@ -36,4 +38,5 @@ public class ArmadilloChild : MonoBehaviour
             hit = false;
         }
     }
+    */
 }
