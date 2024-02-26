@@ -1693,6 +1693,7 @@ GameObject:
   - component: {fileID: 239977580}
   - component: {fileID: 239977579}
   - component: {fileID: 239977581}
+  - component: {fileID: 239977582}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1716,7 +1717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 917, y: 422.1}
+  m_AnchoredPosition: {x: 817, y: 422.1}
   m_SizeDelta: {x: 160, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239977579
@@ -1773,6 +1774,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37ef1eab20bd429084fd5df327302eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &239977582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239977577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1e1f0d1ba23644ea722a346f8a10d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 239977579}
+  maxFontSize: 190
+  minFontSize: 100
 --- !u!1001 &255874543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4740,7 +4756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: 273}
+  m_AnchoredPosition: {x: 0, y: 273}
   m_SizeDelta: {x: 700, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563726741
@@ -7014,7 +7030,6 @@ MonoBehaviour:
   upWeap: {fileID: 1445201443}
   balance: 0
   addDmg: 0
-  runningBalance: 0
 --- !u!114 &745782509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9905,7 +9920,6 @@ GameObject:
   - component: {fileID: 1266037807}
   - component: {fileID: 1266037806}
   - component: {fileID: 1266037808}
-  - component: {fileID: 1266037809}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -9986,21 +10000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03038c04191234977a78028dd9da70f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1266037809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266037804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1e1f0d1ba23644ea722a346f8a10d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 1266037806}
-  maxFontSize: 190
-  minFontSize: 100
 --- !u!1 &1282181002
 GameObject:
   m_ObjectHideFlags: 0
@@ -11578,7 +11577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 750, y: 426}
+  m_AnchoredPosition: {x: 650, y: 426}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1596054597
@@ -14926,7 +14925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 711, y: 435}
+  m_AnchoredPosition: {x: 611, y: 435}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2121864275

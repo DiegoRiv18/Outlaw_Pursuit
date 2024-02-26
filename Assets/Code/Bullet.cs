@@ -29,19 +29,22 @@ public class Bullet : MonoBehaviour
             }
         }
         //Debug.Log("Collision");
-        if (collision.GetComponent<Armadillo>() != null)
+        if(Shop.Singleton != null)
         {
-            collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg + Shop.Singleton.getDmg());
-        }
+            if (collision.GetComponent<Armadillo>() != null)
+            {
+                collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg + Shop.Singleton.getDmg());
+            }
 
-        if (collision.GetComponent<GunGoon>() != null)
-        {
-            collision.gameObject.GetComponent<GunGoon>().decHealth(bulDmg + Shop.Singleton.getDmg());
-        }
+            if (collision.GetComponent<GunGoon>() != null)
+            {
+                collision.gameObject.GetComponent<GunGoon>().decHealth(bulDmg + Shop.Singleton.getDmg());
+            }
 
-        if (collision.GetComponent<Explosion>() != null)
-        {
-            collision.gameObject.GetComponent<Explosion>().boom();
+            if (collision.GetComponent<Explosion>() != null)
+            {
+                collision.gameObject.GetComponent<Explosion>().boom();
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
     public int balance;
     public int addDmg;
     public static Shop Singleton;
-    public int runningBalance;
+    //public int runningBalance;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,7 @@ public class Shop : MonoBehaviour
     private void incBal(int amount)
     {
         balance += amount;
+        //runningBalance = balance;
     }
     public static void moneyUp(int amt)
     {
