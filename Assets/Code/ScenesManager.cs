@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager instance;
-    //private int SavedCoins;
+    private int SavedCoins;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class ScenesManager : MonoBehaviour
     public void LoadScene(Scene scene)
     {
         SceneManager.LoadScene(scene.ToString());
-        //SavedCoins = Shop.Singleton.balance;
+        SavedCoins = Shop.Singleton.balance;
     }
 
     public void LoadNewGame()
@@ -40,6 +40,6 @@ public class ScenesManager : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //Shop.Singleton.balance = SavedCoins;
+        Shop.Singleton.balance = SavedCoins;
     }
 }

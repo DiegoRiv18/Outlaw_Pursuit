@@ -7014,7 +7014,6 @@ MonoBehaviour:
   upWeap: {fileID: 1445201443}
   balance: 0
   addDmg: 0
-  runningBalance: 0
 --- !u!114 &745782509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9905,6 +9904,7 @@ GameObject:
   - component: {fileID: 1266037807}
   - component: {fileID: 1266037806}
   - component: {fileID: 1266037808}
+  - component: {fileID: 1266037809}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -9985,6 +9985,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03038c04191234977a78028dd9da70f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1266037809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266037804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1e1f0d1ba23644ea722a346f8a10d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 1266037806}
+  maxFontSize: 190
+  minFontSize: 100
 --- !u!1 &1282181002
 GameObject:
   m_ObjectHideFlags: 0
