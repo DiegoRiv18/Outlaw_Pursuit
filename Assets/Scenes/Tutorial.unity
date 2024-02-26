@@ -732,7 +732,6 @@ GameObject:
   - component: {fileID: 150811187}
   - component: {fileID: 150811186}
   - component: {fileID: 150811185}
-  - component: {fileID: 150811188}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -813,21 +812,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150811182}
   m_CullTransparentMesh: 1
---- !u!114 &150811188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150811182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da1e1f0d1ba23644ea722a346f8a10d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 150811186}
-  maxFontSize: 190
-  minFontSize: 100
 --- !u!1 &274894565
 GameObject:
   m_ObjectHideFlags: 0
