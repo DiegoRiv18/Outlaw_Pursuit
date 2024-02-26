@@ -10,7 +10,6 @@ public class Shop : MonoBehaviour
     public int balance;
     public int addDmg;
     public static Shop Singleton;
-    //public int runningBalance;
 
     // Start is called before the first frame update
     void Start()
