@@ -7,12 +7,12 @@ public class ProximityText : MonoBehaviour
 {
     public Transform player;
     public float interactionDistance = 3f;
-    public GameObject textCanvas;
+    public GameObject ShopCanvas;
 
     private void Start()
     {
         // Ensure the textCanvas is initially disabled
-        textCanvas.SetActive(false);
+        ShopCanvas.SetActive(false);
     }
 
     private void Update()
@@ -26,12 +26,12 @@ public class ProximityText : MonoBehaviour
             if (distanceToPlayer <= interactionDistance)
             {
                 // Display interaction text and enable canvas
-                textCanvas.SetActive(true);
+                ShopCanvas.SetActive(true);
             }
             else
             {
                 // Hide interaction text and disable canvas
-                textCanvas.SetActive(false);
+                ShopCanvas.SetActive(false);
             }
         }
     }

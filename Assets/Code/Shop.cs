@@ -10,22 +10,15 @@ public class Shop : MonoBehaviour
     public int balance;
     public int addDmg;
     public static Shop Singleton;
+    public int runningBalance;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (Singleton != null && Singleton != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        Singleton = this;
-        DontDestroyOnLoad(this.gameObject);
-
         Singleton = this;
         balance = 0;
         addDmg = 0;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -36,6 +29,7 @@ public class Shop : MonoBehaviour
             notOn();
         }
     }
+    
 
     public void updmg()
     {
@@ -70,7 +64,7 @@ public class Shop : MonoBehaviour
     {
         return Singleton.checkBal();
     }
-
+    
     //toggle buttons on/off
     private void notOn()
     {
@@ -83,4 +77,5 @@ public class Shop : MonoBehaviour
             this.gameObject.GetComponent<Canvas>().enabled = false;
         }
     }
+    
 }
