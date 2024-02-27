@@ -43,4 +43,9 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         //Shop.Singleton.balance = Shop.Singleton.runningBalance;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
