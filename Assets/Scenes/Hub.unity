@@ -1207,7 +1207,7 @@ PrefabInstance:
       objectReference: {fileID: 1986402983}
     - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
       propertyPath: selector
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
       propertyPath: hubTransform

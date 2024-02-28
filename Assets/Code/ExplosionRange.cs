@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ExplosionRange : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
+        if (collision.GetComponent<GunGoon>() != null)
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            collision.GetComponent<GunGoon>().decHealth(100);
+        }
+        if (collision.GetComponent<Gunner>() != null)
+        {
+            collision.GetComponent<Gunner>().decHP(100);
+        }
     }
 }

@@ -18,11 +18,13 @@ public class ScenesManager : MonoBehaviour
         MainMenu,
         Tutorial,
         Hub,
-        Level1
+        Level1,
+        Level2
     }
 
     public void LoadScene(Scene scene)
     {
+        Debug.Log(scene.ToString());
         SceneManager.LoadScene(scene.ToString());
         //SavedCoins = Shop.Singleton.balance;
         

@@ -19,6 +19,9 @@ public class Horse : MonoBehaviour
                 case 2:
                     ScenesManager.instance.LoadScene(ScenesManager.Scene.Level1);
                     break;
+                case 3:
+                    ScenesManager.instance.LoadScene(ScenesManager.Scene.Level2);
+                    break;
             }
         }
     }

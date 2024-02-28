@@ -366,18 +366,24 @@ public class Gunner : MonoBehaviour
 
     public void decHP(int amt)
     {
-        hp -= amt;
-        health_bar.SetHealthBar(hp);
-        if (hp <= 0)
+        if (shield.enabled == true)
         {
-            if ((hpone <= 0 && hptwo <= 0) || (hpone <= 0 && hpthree <= 0) || (hpthree <= 0 && hptwo <= 0))
+            shield.enabled = false;
+        }
+        else{
+            hp -= amt;
+            health_bar.SetHealthBar(hp);
+            if (hp <= 0)
             {
-                Destroy(this.gameObject);
+                if ((hpone <= 0 && hptwo <= 0) || (hpone <= 0 && hpthree <= 0) || (hpthree <= 0 && hptwo <= 0))
+                {
+                    Destroy(this.gameObject);
+                }
+                else
+                {
+                    ultSwitch();
+                }
             }
-            else
-            {
-                ultSwitch();
-            }   
         }
     }
 
