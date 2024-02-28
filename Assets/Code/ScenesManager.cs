@@ -45,6 +45,7 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Shop.Singleton.balance = SavedCoins;
+        bulletcounter.ChangeAmmo(6);
     }
 
     public void QuitGame()

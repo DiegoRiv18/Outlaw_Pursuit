@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class revolver : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class revolver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        if (player != null && SceneManager.GetActiveScene().name != "Hub")
         {
             Vector2 playerPos = player.transform.position;
 
