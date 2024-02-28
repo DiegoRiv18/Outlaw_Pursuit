@@ -86,13 +86,6 @@ public class GunGoon : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<ExplosionRange>() != null)
-        {
-            Debug.Log("Boom");
-            decHealth(100);
-        }
-    }
+
 }
 
