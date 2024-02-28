@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CoinCounter : MonoBehaviour
 {
-    private static float score = 0;
+    //private static float score = 0;
     private static Text scoreText;
 
     // Use this for initialization
@@ -20,13 +20,13 @@ public class CoinCounter : MonoBehaviour
 
     public static void AddToScore(float points)
     {
-        score += points;
+        //score += points;
 
         UpdateText();
     }
 
     private static void UpdateText()
     {
-        scoreText.text = score.ToString();
+        scoreText.text = Shop.Singleton.balance.ToString();
     }
 }

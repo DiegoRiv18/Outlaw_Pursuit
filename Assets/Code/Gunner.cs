@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Gunner : MonoBehaviour
 {
@@ -262,39 +263,41 @@ public class Gunner : MonoBehaviour
     }
     private void Shoot()
     {
-        // get position of mouse on screen
-        Vector2 mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-
-        // set the bullet to spawn next to the player in the position they are facing
-
-        Vector2 bulletPos;
-
-        if (info.facingRight) 
+        if (SceneManager.GetActiveScene().name != "Hub")
         {
-            bulletPos = FindAnyObjectByType<revolver>().transform.GetChild(2).position;
-        }
-
-        else
-        {
-            bulletPos = FindAnyObjectByType<revolver>().transform.GetChild(2).position;
-        }
-
-        // Direction bullet is shot
-        Vector2 bulletDirection = (mousePos - bulletPos).normalized;
+            // get position of mouse on screen
+            Vector2 mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
 
-        float angle = Vector2.SignedAngle(transform.up, bulletDirection);
+            // set the bullet to spawn next to the player in the position they are facing
 
-        //Debug.Log(angle);
-        if ((info.facingRight && angle < 0) || (!info.facingRight && angle > 0))
-        {
-            var bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
+            Vector2 bulletPos;
 
-            bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletDirection.x, bulletDirection.y) * bullSpeed;
-        }
-       
+            if (info.facingRight)
+            {
+                bulletPos = FindAnyObjectByType<revolver>().transform.GetChild(2).position;
+            }
+
+            else
+            {
+                bulletPos = FindAnyObjectByType<revolver>().transform.GetChild(2).position;
+            }
+
+            // Direction bullet is shot
+            Vector2 bulletDirection = (mousePos - bulletPos).normalized;
+
+
+            float angle = Vector2.SignedAngle(transform.up, bulletDirection);
+
+            //Debug.Log(angle);
+            if ((info.facingRight && angle < 0) || (!info.facingRight && angle > 0))
+            {
+                var bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
+
+                bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletDirection.x, bulletDirection.y) * bullSpeed;
+            }
+        }       
     }
 
     private IEnumerator HealCooldown()

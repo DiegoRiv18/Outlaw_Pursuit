@@ -14,13 +14,18 @@ public class Shop : MonoBehaviour
     public static Shop Singleton;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //shopCanvas.SetActive(false);
+        if (Singleton != null && Singleton != this)
+        {
+            Destroy(gameObject); // Ensures only one instance exists
+            return;
+        }
+
         Singleton = this;
+        DontDestroyOnLoad(this.gameObject);
         balance = 0;
         addDmg = 0;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -82,5 +87,4 @@ public class Shop : MonoBehaviour
             shopCanvas.SetActive(false);
         }
     }
-    
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CoinDisplay : MonoBehaviour
 {
     public Text coinText;
-    public int maxFontSize = 175; // Set your maximum font size here
+    public int maxFontSize = 190; // Set your maximum font size here
     public int minFontSize = 100; // Set your minimum font size here
 
     private void Update()
