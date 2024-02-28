@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour
 {
+    public GameObject shopCanvas;
     public Button bullet;
     public Button upWeap;
     public int balance;
@@ -15,6 +16,7 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //shopCanvas.SetActive(false);
         Singleton = this;
         balance = 0;
         addDmg = 0;
@@ -52,7 +54,6 @@ public class Shop : MonoBehaviour
     private void incBal(int amount)
     {
         balance += amount;
-        //runningBalance = balance;
     }
     public static void moneyUp(int amt)
     {
@@ -72,13 +73,13 @@ public class Shop : MonoBehaviour
     //toggle buttons on/off
     private void notOn()
     {
-        if (this.gameObject.GetComponent<Canvas>().enabled == false)
+        if (shopCanvas.activeSelf == false)
         {
-            this.gameObject.GetComponent<Canvas>().enabled = true;
+            shopCanvas.SetActive(true);
         }
         else
         {
-            this.gameObject.GetComponent<Canvas>().enabled = false;
+            shopCanvas.SetActive(false);
         }
     }
     

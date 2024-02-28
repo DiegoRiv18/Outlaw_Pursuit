@@ -3616,11 +3616,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1568913707808040213, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.9
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 1568913707808040213, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1568913707808040213, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5896,8 +5896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849602b15a1c2fc4594095c0ca1d7765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  upWeap: {fileID: 0}
+  bullet: {fileID: 1335482433}
+  upWeap: {fileID: 2031219705}
   balance: 0
   addDmg: 0
 --- !u!4 &1983330579
