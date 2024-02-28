@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Shop : MonoBehaviour
 {
@@ -23,9 +24,12 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f"))
+        if (SceneManager.GetActiveScene().name == "Hub")
         {
-            notOn();
+            if (Input.GetKeyDown("f"))
+            {
+                notOn();
+            }
         }
     }
     
