@@ -1,3 +1,4 @@
+using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,6 @@ using UnityEngine.XR;
 
 public class Bullet : MonoBehaviour
 {
-
     public int bulDmg = 30;
 
     void OnBecameInvisible()
@@ -16,7 +16,8 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(this.gameObject);
-        if(collision.GetComponent<Gunner>() != null)
+
+        if (collision.GetComponent<Gunner>() != null)
         {
             Gunner gunman = collision.gameObject.GetComponent<Gunner>();
             if(gunman.shield.enabled == true)
@@ -31,6 +32,7 @@ public class Bullet : MonoBehaviour
         //Debug.Log("Collision");
         if(Shop.Singleton != null)
         {
+            
             if (collision.GetComponent<Armadillo>() != null)
             {
                 collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg + Shop.Singleton.getDmg());

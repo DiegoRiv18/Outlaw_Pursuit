@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7150303496701617556}
   - component: {fileID: 5522395911312805984}
+  - component: {fileID: 4729279171912347779}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Untagged
@@ -206,6 +207,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &4729279171912347779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754021902722248549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &1146983123707352820
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7479075474651305705}
   - component: {fileID: 8015246722094877388}
+  - component: {fileID: 8756055377123019393}
   m_Layer: 0
   m_Name: Armadillo Outline
   m_TagString: Untagged
@@ -291,6 +307,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!114 &8756055377123019393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146983123707352820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &1913230414085079139
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8466937249937771813}
   - component: {fileID: 6410275934309096350}
+  - component: {fileID: 6513986932975284091}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -375,6 +406,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6513986932975284091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913230414085079139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &2755370242519075371
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6431997649790442163}
   - component: {fileID: 869895407261315196}
+  - component: {fileID: 7251058637128868198}
   m_Layer: 0
   m_Name: Shell (2)
   m_TagString: Untagged
@@ -460,6 +506,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7251058637128868198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755370242519075371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &3638025292781020066
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3016659113204808159}
   - component: {fileID: 6325846675294949665}
+  - component: {fileID: 9154192932335534806}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -544,6 +605,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9154192932335534806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638025292781020066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &3705057832558847830
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3939146674992118649}
   - component: {fileID: 2837027152962595076}
+  - component: {fileID: 1987662007397332146}
   m_Layer: 0
   m_Name: Shell (1)
   m_TagString: Untagged
@@ -629,6 +705,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1987662007397332146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705057832558847830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &4075825050998396991
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +1006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 547213847006052675}
   - component: {fileID: 1124248385704246865}
+  - component: {fileID: 5656835106496691161}
   m_Layer: 0
   m_Name: Outline
   m_TagString: Untagged
@@ -990,6 +1081,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &5656835106496691161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5840519945198469926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &6677987076707955551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,6 +1105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8788356134831645827}
   - component: {fileID: 3910958442648899811}
+  - component: {fileID: 4202583242334336578}
   m_Layer: 0
   m_Name: Outline
   m_TagString: Untagged
@@ -1074,6 +1180,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &4202583242334336578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677987076707955551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &8061616245935181048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7249771772331611858}
   - component: {fileID: 8558914790721196431}
+  - component: {fileID: 5779448897444847575}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -1159,6 +1280,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5779448897444847575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061616245935181048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
 --- !u!1 &8116715653499792507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3333002572380999215}
   - component: {fileID: 7925933337294678676}
+  - component: {fileID: 2858598192113585926}
   m_Layer: 0
   m_Name: Outline
   m_TagString: Untagged
@@ -1243,3 +1379,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2858598192113585926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116715653499792507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3efe1a819f4dc944a02a97091168cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 7cf6edb03b1a50c4aa0f5ea016e173e9, type: 2}
+  duration: 0.175
