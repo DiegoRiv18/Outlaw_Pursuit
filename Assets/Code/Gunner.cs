@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class Gunner : MonoBehaviour
 {
@@ -43,21 +44,24 @@ public class Gunner : MonoBehaviour
     void Start()
     {
         reloadingStatus.SetActive(false);
-        hpone = 100;
-        hptwo = 100;
-        hpthree = 100;
-        hp = 100;
+        hpone = 100 + Shop.Singleton.getHP(); ;
+        hptwo = 100 + Shop.Singleton.getHP(); ;
+        hpthree = 100 + Shop.Singleton.getHP(); ;
+        hp = 100 + Shop.Singleton.getHP();
         actChar = 1;
         baseColor = transform.Find("Square").GetComponent<SpriteRenderer>();
         hp1Co = health_bar.transform.Find("Fill").GetComponent<Image>();
         hp2Co = health_two.transform.Find("Fill").GetComponent<Image>();
         hp3Co = health_three.transform.Find("Fill").GetComponent<Image>();
         DeathScreen.SetActive(false);
-        hpcap = 100;
+        hpcap = hp;
         shield = transform.Find("Line").GetComponent<LineRenderer>();
         shield.enabled = false;
         Heal.enabled = false;
         Shield.enabled = false;
+        health_bar.slider.maxValue = hp;
+        health_two.slider.maxValue = hp;
+        health_three.slider.maxValue = hp;
     }
      
     // Update is called once per frame
@@ -82,16 +86,33 @@ public class Gunner : MonoBehaviour
                 bulletcounter.ChangeAmmo(6 - shotCounter);
             }
         }
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("1"))
         {
-            ultSwitch();
+            if (canSwitch == true && hpone > 0)
+            {
+                switch1();
+            }
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            if (canSwitch == true && hptwo > 0)
+            {
+                switch2();
+            }
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            if (canSwitch == true && hpthree > 0)
+            {
+                switch3();
+            }
         }
         if (Input.GetKeyDown("e"))
         {
             if (actChar == 2 && canHeal == true)
             {
                 StartCoroutine(HealCooldown());
-                heal(10);
+                heal(60);
             }
             if (actChar == 3 && canShield == true)
             {
@@ -101,11 +122,10 @@ public class Gunner : MonoBehaviour
         }
     }
 
-    public void ultSwitch()
+    /*public void ultSwitch()
     {
         if (canSwitch == true)
         {
-            StartCoroutine(SwitchCooldown());
             actChar += 1;
             if (actChar == 4)
             {
@@ -142,22 +162,22 @@ public class Gunner : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     public void switch1()
     {
+        if (actChar == 2)
+        {
+            hptwo = hp;
+        }
+        else if(actChar == 3)
+        {
+            hpthree = hp;
+        }
         actChar = 1;
         baseColor.color = new Color(1, 0.509804f, 0.1647059f, 1);
         info.speed = 5;
         info.jumpPower = 8;
-        if (hpthree <= 0)
-        {
-            hptwo = hp;
-        }
-        else
-        {
-            hpthree = hp;
-        }
         hp = hpone;
         health_bar.SetHealthBar(hp);
         health_two.SetHealthBar(hptwo);
@@ -170,18 +190,18 @@ public class Gunner : MonoBehaviour
 
     public void switch2()
     {
+        if (actChar == 1)
+        {
+            hpone = hp;
+        }
+        else if (actChar == 3)
+        {
+            hpthree = hp;
+        }
         actChar = 2;
         baseColor.color = Color.blue;
         info.speed = 3;
         info.jumpPower = 6;
-        if (hpone <= 0)
-        {
-            hpthree = hp;
-        }
-        else
-        {
-            hpone = hp;
-        }
         hp = hptwo;
         health_bar.SetHealthBar(hp);
         health_two.SetHealthBar(hpthree);
@@ -194,18 +214,18 @@ public class Gunner : MonoBehaviour
 
     public void switch3()
     {
+        if (actChar == 2)
+        {
+            hptwo = hp;
+        }
+        else if (actChar == 1)
+        {
+            hpone = hp;
+        }
         actChar = 3;
         baseColor.color = Color.yellow;
         info.speed = 7;
         info.jumpPower = 10;
-        if (hptwo <= 0)
-        {
-            hpone = hp;
-        }
-        else
-        {
-            hptwo = hp;
-        }
         hp = hpthree;
         health_bar.SetHealthBar(hp);
         health_two.SetHealthBar(hpone);
@@ -303,26 +323,31 @@ public class Gunner : MonoBehaviour
     private IEnumerator HealCooldown()
     {
         canHeal = false;
-        yield return new WaitForSeconds(5);
-        canHeal = true;
+        Heal.text = "15";
         Heal.enabled = true;
+        for (int i = 15; i > 0; i--)
+        {
+            Heal.text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        Heal.text = "Heal\nReady!";
+        canHeal = true;
         yield return new WaitForSeconds(2);
         Heal.enabled = false;
-    }
-
-    private IEnumerator SwitchCooldown()
-    {
-        canSwitch = false;
-        yield return new WaitForSeconds(1);
-        canSwitch = true;
     }
 
     private IEnumerator ShieldCooldown()
     {
         canShield = false;
-        yield return new WaitForSeconds(5);
-        canShield = true;
+        Shield.text = "10";
         Shield.enabled = true;
+        for (int i = 10; i > 0; i--)
+        {
+            Shield.text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        Shield.text = "Shield\nReady!";
+        canShield = true;
         yield return new WaitForSeconds(2);
         Shield.enabled = false;
     }
@@ -382,9 +407,38 @@ public class Gunner : MonoBehaviour
                 {
                     Destroy(this.gameObject);
                 }
-                else
+                else if (actChar == 1)
                 {
-                    ultSwitch();
+                    if (hptwo > 0)
+                    {
+                        switch2();
+                    }
+                    else if (hpthree > 0)
+                    {
+                        switch3();
+                    }
+                }
+                else if (actChar == 2)
+                {
+                    if (hpthree > 0)
+                    {
+                        switch3();
+                    }
+                    else if (hpone > 0)
+                    {
+                        switch1();
+                    }
+                }
+                else if (actChar == 3)
+                {
+                    if (hpone > 0)
+                    {
+                        switch1();
+                    }
+                    else if (hptwo > 0)
+                    {
+                        switch2();
+                    }
                 }
             }
         }

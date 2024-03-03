@@ -11,6 +11,7 @@ public class Shop : MonoBehaviour
     public Button upWeap;
     public int balance;
     public int addDmg;
+    public int addHP;
     public static Shop Singleton;
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class Shop : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         balance = 0;
         addDmg = 0;
+        addHP = 0;
     }
 
     // Update is called once per frame
@@ -51,10 +53,26 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void upHP()
+    {
+        if (balance >= 10)
+        {
+            addHP += 50;
+            balance -= 10;
+            CoinCounter.AddToScore(-10);
+        }
+    }
+
     public int getDmg()
     {
         return addDmg;
     }
+
+    public int getHP()
+    {
+        return addHP;
+    }
+
 
     private void incBal(int amount)
     {
