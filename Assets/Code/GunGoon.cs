@@ -1,4 +1,3 @@
-using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -20,17 +19,13 @@ public class GunGoon : MonoBehaviour
     private Vector2 HeadingToPlayer => OffsetToPlayer.normalized;
     public float initialDelay = 0.75f;  // Delay before firing for goons
     private bool hasStartedShooting = false;
-    //private SimpleFlash flashEffect;
-    //private SpriteRenderer[] childRenderers;
+
 
 
 
     private void Start()
     {
-        // Get all SpriteRenderer components in children (including the parent itself)
-        //SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>(true);
         timer = Time.time;
-        //flashEffect = GetComponent<SimpleFlash>();
     }
     // Update is called once per frame
     void Update()
@@ -81,11 +76,6 @@ public class GunGoon : MonoBehaviour
     public void decHealth(int hp)
     {
         health -= hp;
-        /*foreach(SpriteRenderer childRenderer in childRenderers)
-        {
-            flashEffect.Flash();
-        }
-        */
         if (health <= 0)
         {
             Instantiate(moneyPrefab, transform.position, Quaternion.identity);
