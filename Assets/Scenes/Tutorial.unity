@@ -3775,6 +3775,38 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: Gun
+      value: 
+      objectReference: {fileID: 1966665293}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: Heal
+      value: 
+      objectReference: {fileID: 1896143078}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: Shield
+      value: 
+      objectReference: {fileID: 86175544}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: health_bar
+      value: 
+      objectReference: {fileID: 274894567}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: health_two
+      value: 
+      objectReference: {fileID: 1731807551}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: DeathScreen
+      value: 
+      objectReference: {fileID: 1437344333}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: health_three
+      value: 
+      objectReference: {fileID: 381123199}
+    - target: {fileID: 4798526882671939871, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
+      propertyPath: reloadingStatus
+      value: 
+      objectReference: {fileID: 362501344}
     - target: {fileID: 7623236969149691713, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
       propertyPath: m_SortingOrder
       value: 1

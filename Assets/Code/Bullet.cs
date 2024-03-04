@@ -7,6 +7,7 @@ using UnityEngine.XR;
 public class Bullet : MonoBehaviour
 {
     public int bulDmg = 30;
+    public GameObject impact;
 
     void OnBecameInvisible()
     {
@@ -27,6 +28,7 @@ public class Bullet : MonoBehaviour
             else
             {
                 gunman.decHP(bulDmg);
+                Instantiate(impact, this.transform.position, Quaternion.identity);
             }
         }
         //Debug.Log("Collision");
@@ -35,16 +37,19 @@ public class Bullet : MonoBehaviour
             
             if (collision.GetComponent<Armadillo>() != null)
             {
+                Instantiate(impact, this.transform.position, Quaternion.identity);
                 collision.gameObject.GetComponent<Armadillo>().decHealth(bulDmg + Shop.Singleton.getDmg());
             }
 
             if (collision.GetComponent<GunGoon>() != null)
             {
+                Instantiate(impact, this.transform.position, Quaternion.identity);
                 collision.gameObject.GetComponent<GunGoon>().decHealth(bulDmg + Shop.Singleton.getDmg());
             }
 
             if (collision.GetComponent<Explosion>() != null)
             {
+                Instantiate(impact, this.transform.position, Quaternion.identity);
                 collision.gameObject.GetComponent<Explosion>().boom();
             }
         }

@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulDmg: 30
+  impact: {fileID: 7488946127672696757, guid: 52fcb1618bd2a61499851546f142c955, type: 3}
 --- !u!50 &8900970251083098700
 Rigidbody2D:
   serializedVersion: 4
