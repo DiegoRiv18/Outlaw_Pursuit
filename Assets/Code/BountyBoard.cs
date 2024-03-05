@@ -16,11 +16,11 @@ public class BountyBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(transform.position.x - player.transform.position.x) < 3)
+        if (Mathf.Abs(transform.position.x - player.transform.position.x) < 5)
         {
             if(Input.GetKeyDown("b"))
             {
-                bountyCanvas.SetActive(true);
+                bountyCanvas.SetActive(!bountyCanvas.activeSelf);
             }
         }
     }
