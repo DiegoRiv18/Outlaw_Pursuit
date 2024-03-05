@@ -5,20 +5,10 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public GameObject ExplosionPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void boom()
     {
+        AudioManager.Instance.PlaySFX("Explosion");
         GameObject bam = Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
         StartCoroutine(WaitEx(bam));
     }

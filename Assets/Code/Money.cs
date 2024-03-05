@@ -8,6 +8,7 @@ public class Money : MonoBehaviour
     {
         if (collision.GetComponent<Gunner>() != null)
         {
+            AudioManager.Instance.PlaySFX("Coin");
             Shop.moneyUp(1);
             CoinCounter.AddToScore(1);
             Destroy(this.gameObject);

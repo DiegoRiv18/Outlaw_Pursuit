@@ -28,7 +28,15 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(scene.ToString());
         SavedCoins = Shop.Singleton.balance;
         bulletcounter.ChangeAmmo(6);
-        
+        if (scene.ToString() == "Level2")
+        {
+            AudioManager.Instance.PlayMusic("Cave Theme");
+        }
+        if (scene.ToString() == "Hub")
+        {
+            AudioManager.Instance.PlayMusic("Hub Theme");
+        }
+
     }
 
     public void LoadNewGame()

@@ -47,6 +47,7 @@ public class Shop : MonoBehaviour
     {
         if (balance >= 10)
         {
+            AudioManager.Instance.PlaySFX("ChaChing");
             addDmg += 20;
             balance -= 10;
             CoinCounter.AddToScore(-10);
@@ -57,6 +58,7 @@ public class Shop : MonoBehaviour
     {
         if (balance >= 10)
         {
+            AudioManager.Instance.PlaySFX("ChaChing");
             addHP += 50;
             balance -= 10;
             CoinCounter.AddToScore(-10);

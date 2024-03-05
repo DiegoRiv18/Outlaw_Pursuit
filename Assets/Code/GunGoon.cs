@@ -67,6 +67,7 @@ public class GunGoon : MonoBehaviour
     }
     private void Shoot()
     {
+        AudioManager.Instance.PlaySFX("Shot");
         var bulletPos = gun.transform.GetChild(2).position;
         var bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = HeadingToPlayer * bullSpeed;

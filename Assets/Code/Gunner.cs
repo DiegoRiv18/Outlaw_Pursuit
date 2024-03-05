@@ -313,11 +313,16 @@ public class Gunner : MonoBehaviour
             //Debug.Log(angle);
             if ((info.facingRight && angle < 0) || (!info.facingRight && angle > 0))
             {
+                AudioManager.Instance.PlaySFX("Shot");
                 var bullet = Instantiate(BulletPrefab, bulletPos, Quaternion.identity);
 
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletDirection.x, bulletDirection.y) * bullSpeed;
             }
-        }       
+        }
+        else
+        {
+            Gun.SetActive(false);
+        }
     }
 
     private IEnumerator HealCooldown()
@@ -377,6 +382,7 @@ public class Gunner : MonoBehaviour
         reloadingStatus.SetActive(true);
         canShoot = false; // Set to false to prevent shooting
         yield return new WaitForSeconds(reloadDuration);
+        AudioManager.Instance.PlaySFX("Reload");
         reloadingStatus.SetActive(false);
         bulletcounter.ChangeAmmo(6);
         shotCounter = 0;

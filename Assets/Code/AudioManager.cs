@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
+  
     private void Awake()
     {
         if (Instance == null)
@@ -22,33 +23,37 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void PlayMusic(string name)
+    private void Start()
     {
-        Sound s = Array.Find(musicSounds, x => x.sName == name);
-
-        if (s != null)
+        PlayMusic("Main Theme");
+    }
+    public void PlayMusic (string song)
+    {
+        Sound s = Array.Find(musicSounds, x => x.name == song);
+        if (s == null)
         {
             Debug.Log("Sound Not Found");
         }
         else
         {
-            musicSource.clip = s.clip;
-            musicSource.Play();
+            {
+                musicSource.clip = s.clip;
+                musicSource.Play();
+            }
         }
     }
-
-    public void PlaySFX(string name)
+    public void PlaySFX(string sound)
     {
-        Sound s = Array.Find(sfxSounds, x => x.sName == name);
-
-        if (s != null)
+        Sound s = Array.Find(sfxSounds, x => x.name == sound);
+        if (s == null)
         {
             Debug.Log("Sound Not Found");
         }
         else
         {
-            sfxSource.PlayOneShot(s.clip);
+            {
+                sfxSource.PlayOneShot(s.clip);
+            }
         }
     }
 }
