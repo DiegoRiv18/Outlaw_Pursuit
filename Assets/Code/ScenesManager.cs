@@ -19,7 +19,8 @@ public class ScenesManager : MonoBehaviour
         Tutorial,
         Hub,
         Level1,
-        Level2
+        Level2,
+        Level3,
     }
 
     public void LoadScene(Scene scene)
