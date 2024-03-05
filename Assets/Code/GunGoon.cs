@@ -1,3 +1,4 @@
+using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class GunGoon : MonoBehaviour
 {
     public GameObject player;
-    public EnemyRevolver gun;
+    public GameObject gun;
     public GameObject bulletPrefab;
     public float bullSpeed = 15;
     public int health = 50;
@@ -19,13 +20,18 @@ public class GunGoon : MonoBehaviour
     private Vector2 HeadingToPlayer => OffsetToPlayer.normalized;
     public float initialDelay = 0.75f;  // Delay before firing for goons
     private bool hasStartedShooting = false;
-
+    public bool chaingun;
+    //private SimpleFlash flashEffect;
+    //private SpriteRenderer[] childRenderers;
 
 
 
     private void Start()
     {
+        // Get all SpriteRenderer components in children (including the parent itself)
+        //SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>(true);
         timer = Time.time;
+        //flashEffect = GetComponent<SimpleFlash>();
     }
     // Update is called once per frame
     void Update()
@@ -67,8 +73,18 @@ public class GunGoon : MonoBehaviour
     }
     private void Shoot()
     {
-        AudioManager.Instance.PlaySFX("Shot");
-        var bulletPos = gun.transform.GetChild(2).position;
+        var bulletPos = new Vector3(0,0,0);
+        if (chaingun)
+        {
+            bulletPos = gun.transform.GetChild(0).GetChild(0).GetChild(9).position;
+        }
+
+        else
+
+        {
+            bulletPos = gun.transform.GetChild(2).position;
+        }
+      
         var bullet = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = HeadingToPlayer * bullSpeed;
 
@@ -77,6 +93,11 @@ public class GunGoon : MonoBehaviour
     public void decHealth(int hp)
     {
         health -= hp;
+        /*foreach(SpriteRenderer childRenderer in childRenderers)
+        {
+            flashEffect.Flash();
+        }
+        */
         if (health <= 0)
         {
             Instantiate(moneyPrefab, transform.position, Quaternion.identity);
