@@ -31,11 +31,11 @@ public class BountyBoard : MonoBehaviour
             if(Input.GetKeyDown("b"))
             {
                 bountyCanvas.SetActive(!bountyCanvas.activeSelf);
-                if (ScenesManager.instance.andydeath == true)
+                if (Shop.Singleton.andydeath == true)
                 {
                     harryPoster.SetActive(true);
                 }
-                if (ScenesManager.instance.harrydeath == true)
+                if (Shop.Singleton.harrydeath == true)
                 {
                     harryPosterX.SetActive(true);
                     baronPoster.SetActive(true);

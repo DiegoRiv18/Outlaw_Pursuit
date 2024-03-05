@@ -13,6 +13,9 @@ public class Shop : MonoBehaviour
     public int addDmg;
     public int addHP;
     public static Shop Singleton;
+    public bool andydeath = false;
+    public bool harrydeath = false;
+    public bool barondeath = false;
 
     // Start is called before the first frame update
     void Awake()

@@ -11,19 +11,19 @@ public class BossManager : MonoBehaviour
         AudioManager.Instance.PlaySFX("ChaChing");
         if (bossNum == 1)
         {
-            ScenesManager.instance.andydeath = true;
+            Shop.Singleton.andydeath = true;
             Shop.Singleton.balance += 20;
         }
 
         if (bossNum == 2)
         {
-            ScenesManager.instance.harrydeath = true;
+            Shop.Singleton.harrydeath = true;
             Shop.Singleton.balance += 35;
         }
 
         if (bossNum == 3)
         {
-            ScenesManager.instance.barondeath = true;
+            Shop.Singleton.barondeath = true;
             Shop.Singleton.balance += 50;
         }
     }

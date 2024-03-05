@@ -7,9 +7,6 @@ public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager instance;
     private int SavedCoins;
-    public bool andydeath = false;
-    public bool harrydeath = false;
-    public bool barondeath = false;
 
     private void Awake()
     {

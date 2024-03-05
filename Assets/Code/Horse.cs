@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Horse : MonoBehaviour
 {
-    public int selector = 2;
+    public int selector = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,6 +21,9 @@ public class Horse : MonoBehaviour
                     break;
                 case 3:
                     ScenesManager.instance.LoadScene(ScenesManager.Scene.Level2);
+                    break;
+                case 4:
+                    ScenesManager.instance.LoadScene(ScenesManager.Scene.Level3);
                     break;
             }
         }
