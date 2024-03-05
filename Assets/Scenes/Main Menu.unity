@@ -152,7 +152,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.144
+  m_Volume: 0.13
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -627,6 +627,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 9dab60f8353569f44b078447b1505239, type: 3}
   - name: ChaChing
     clip: {fileID: 8300000, guid: e5a4578e94da4e94c895707bec7f252c, type: 3}
+  - name: Jump
+    clip: {fileID: 8300000, guid: c9f74760193a7e94f9db29e8eb4ecdb6, type: 3}
   musicSource: {fileID: 43237021}
   sfxSource: {fileID: 609041093}
 --- !u!4 &748164394
@@ -1332,6 +1334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f971447f33f1364db5db6fe8081057d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  andydeath: 0
+  harrydeath: 0
+  barondeath: 0
 --- !u!1 &1977111773
 GameObject:
   m_ObjectHideFlags: 0

@@ -2227,7 +2227,7 @@ RectTransform:
   m_GameObject: {fileID: 476921623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.125, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1530085988}
@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e8da4b146d14e46be84c2a87d3341747, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9ed0a49ce863ce4eb46962808e1f012, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3174,7 +3174,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794399491}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Gunner, Assembly-CSharp
         m_MethodName: buyHealth
         m_Mode: 1
@@ -6573,7 +6573,7 @@ PrefabInstance:
     - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1794399491}
+      objectReference: {fileID: 0}
     - target: {fileID: 8225901873954085241, guid: 77c04255d62b8d04e83d7b4e3eaa91f8, type: 3}
       propertyPath: selector
       value: 1
@@ -7430,6 +7430,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f971447f33f1364db5db6fe8081057d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  andydeath: 0
+  harrydeath: 0
+  barondeath: 0
 --- !u!114 &1777607923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7535,118 +7538,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
   m_PrefabInstance: {fileID: 5900569591333322582}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1794399486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794399485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e742add0cd629549903fdabe7e2eac5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpPower: 8
-  facingRight: 1
---- !u!50 &1794399487
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794399485}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: b034c040acb8845b78e8ae667bab6ebe, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &1794399488
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794399485}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: b034c040acb8845b78e8ae667bab6ebe, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.006397724, y: 0.21990821}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9853668, y: 1.4422438}
-  m_EdgeRadius: 0
---- !u!114 &1794399491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1794399485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f7915af5daba94d935cd7846df0881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 1794399486}
-  BulletPrefab: {fileID: 2766700727542923477, guid: 2b5de67863f55584fba9a8472d21d64b, type: 3}
-  bullSpeed: 10
-  hp: 0
-  health_bar: {fileID: 191636095}
-  health_two: {fileID: 1685754989}
-  health_three: {fileID: 1448800299}
-  Gun: {fileID: 1890723670}
-  reloadingStatus: {fileID: 563726739}
-  DeathScreen: {fileID: 434148767}
-  shield: {fileID: 0}
-  Heal: {fileID: 623717187}
-  Shield: {fileID: 1282181003}
 --- !u!4 &1794399493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1568913707808040213, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
@@ -7746,7 +7637,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794399491}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Gunner, Assembly-CSharp
         m_MethodName: buyHealth
         m_Mode: 1
@@ -8788,7 +8679,7 @@ RectTransform:
   m_GameObject: {fileID: 2121864273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.3499, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1946773362}
@@ -8818,7 +8709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f8f0a615a280cd4ba5e8fc276d83758, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5b9469a85993484a89731463f6ed11d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8919,7 +8810,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1794399491}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Gunner, Assembly-CSharp
         m_MethodName: buyHealth
         m_Mode: 1
@@ -9154,19 +9045,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 830425955608005526, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1794399488}
-    - targetCorrespondingSourceObject: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1794399487}
-    - targetCorrespondingSourceObject: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1794399486}
-    - targetCorrespondingSourceObject: {fileID: 8632475138659018950, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1794399491}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56e8a5caf07b2e43916668438e7c2ae, type: 3}
 --- !u!1001 &6994502157265901718
 PrefabInstance:
