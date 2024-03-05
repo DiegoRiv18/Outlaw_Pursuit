@@ -73,6 +73,7 @@ public class GunGoon : MonoBehaviour
     }
     private void Shoot()
     {
+        AudioManager.Instance.PlaySFX("Shot");
         var bulletPos = new Vector3(0,0,0);
         if (chaingun)
         {
