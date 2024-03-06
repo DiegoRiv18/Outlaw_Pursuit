@@ -40,11 +40,13 @@ public class Gunner : MonoBehaviour
     public Text Heal;
     public Text Shield;
     public Text Reload;
+    public bulletcounter counter;
     int maxAmmo;
 
     // Start is called before the first frame update
     void Start()
     {
+        counter = FindAnyObjectByType<bulletcounter>();
         reloadingStatus.SetActive(false);
         hpone = 100 + Shop.Singleton.getHP(); ;
         hptwo = 100 + Shop.Singleton.getHP(); ;
@@ -87,7 +89,7 @@ public class Gunner : MonoBehaviour
             {
                 StartCoroutine(ShootCooldown());
                 Shoot();
-                bulletcounter.ChangeAmmo(6 - shotCounter);
+                counter.ChangeAmmo(6 - shotCounter);
             }
         }
         if (Input.GetKeyDown("1"))
@@ -125,48 +127,6 @@ public class Gunner : MonoBehaviour
             }
         }
     }
-
-    /*public void ultSwitch()
-    {
-        if (canSwitch == true)
-        {
-            actChar += 1;
-            if (actChar == 4)
-            {
-                if (hpone > 0)
-                {
-                    switch1();
-                }
-                else if (hptwo > 0)
-                {
-                    switch2();
-                }
-            }
-            else if (actChar == 2)
-            {
-                if (hptwo > 0)
-                {
-                    switch2();
-                }
-                else if (hpthree > 0)
-                {
-                    switch3();
-                }
-
-            }
-            else if (actChar == 3)
-            {
-                if (hpthree > 0)
-                {
-                    switch3();
-                }
-                else if (hpone > 0)
-                {
-                    switch1();
-                }
-            }
-        }
-    }*/
 
     public void switch1()
     {
@@ -391,7 +351,7 @@ public class Gunner : MonoBehaviour
             yield return new WaitForSeconds(reloadDuration);
             AudioManager.Instance.PlaySFX("Reload");
             reloadingStatus.SetActive(false);
-            bulletcounter.ChangeAmmo(6);
+            counter.ChangeAmmo(6 + Shop.Singleton.getAmmo());
             shotCounter = 0;
         }
         else
@@ -411,7 +371,7 @@ public class Gunner : MonoBehaviour
         yield return new WaitForSeconds(reloadDuration);
         AudioManager.Instance.PlaySFX("Reload");
         reloadingStatus.SetActive(false);
-        bulletcounter.ChangeAmmo(maxAmmo);
+        counter.ChangeAmmo(maxAmmo);
         shotCounter = 0;
         canShoot = true; // Set back to true, allowing shooting again
         shotCounter++; // Increment the shot counter

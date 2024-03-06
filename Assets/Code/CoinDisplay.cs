@@ -6,6 +6,7 @@ public class CoinDisplay : MonoBehaviour
     public Text coinText;
     public int maxFontSize = 190; // Set your maximum font size here
     public int minFontSize = 100; // Set your minimum font size here
+    private int strlen = 1;
 
     private void Update()
     {
@@ -15,7 +16,11 @@ public class CoinDisplay : MonoBehaviour
         int fontSize = maxFontSize - coinCount.ToString().Length * 20;
 
         // Update the font size of the Text component
-        coinText.fontSize = fontSize;
+        if(coinCount.ToString().Length > strlen)
+        {
+            coinText.fontSize = fontSize;
+            strlen = coinCount.ToString().Length;
+        }
 
         // Update the displayed text
         coinText.text = coinCount.ToString();

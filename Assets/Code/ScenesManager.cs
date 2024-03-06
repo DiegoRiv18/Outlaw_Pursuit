@@ -7,12 +7,20 @@ public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager instance;
     private int SavedCoins;
+    private bulletcounter counter;
 
     private void Awake()
     {
         instance = this;
     }
 
+    private void Start()
+    {
+        if (FindAnyObjectByType<bulletcounter>() != null)
+        {
+            counter = FindAnyObjectByType<bulletcounter>();
+        }
+    }
     public enum Scene
     {
         MainMenu,
@@ -28,7 +36,7 @@ public class ScenesManager : MonoBehaviour
         Debug.Log(scene.ToString());
         SceneManager.LoadScene(scene.ToString());
         SavedCoins = Shop.Singleton.balance;
-        bulletcounter.ChangeAmmo(6);
+        counter.ChangeAmmo(6);
         if (scene.ToString() == "Level2")
         {
             AudioManager.Instance.PlayMusic("Cave Theme");
@@ -58,7 +66,7 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Shop.Singleton.balance = SavedCoins;
-        bulletcounter.ChangeAmmo(6);
+        counter.ChangeAmmo(6 + Shop.Singleton.getAmmo());
     }
 
     public void QuitGame()

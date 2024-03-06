@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class bulletcounter : MonoBehaviour
 {
-    private static float ammo = 6;
+    private float ammo = 6;
     private static Text ammoText;
 
     // Use this for initialization
@@ -17,14 +17,14 @@ public class bulletcounter : MonoBehaviour
 
     }
 
-    public static void ChangeAmmo(float amt)
+    public void ChangeAmmo(float amt)
     {
-        ammo = amt;
+        ammo = amt + Shop.Singleton.getAmmo();
 
         UpdateText();
     }
 
-    private static void UpdateText()
+    private void UpdateText()
     {
         ammoText.text = ammo.ToString();
     }
