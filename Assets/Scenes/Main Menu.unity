@@ -616,6 +616,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ca9dfb74812af1b4b86a14e9a9be107a, type: 3}
   - name: Cave Theme
     clip: {fileID: 8300000, guid: a99e8d86d8505b246a2f406ff16fab1f, type: 3}
+  - name: Train Theme
+    clip: {fileID: 8300000, guid: fe676d0891aba904ab6a89975415638e, type: 3}
   sfxSounds:
   - name: Shot
     clip: {fileID: 8300000, guid: 72db847492b1c2245923606e24fb455d, type: 3}

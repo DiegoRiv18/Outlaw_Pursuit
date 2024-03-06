@@ -33,6 +33,10 @@ public class ScenesManager : MonoBehaviour
         {
             AudioManager.Instance.PlayMusic("Cave Theme");
         }
+        if (scene.ToString() == "Level3")
+        {
+            AudioManager.Instance.PlayMusic("Train Theme");
+        }
         if (scene.ToString() == "Hub")
         {
             AudioManager.Instance.PlayMusic("Hub Theme");
