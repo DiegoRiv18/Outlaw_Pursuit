@@ -16,6 +16,7 @@ public class Shop : MonoBehaviour
     public bool andydeath = false;
     public bool harrydeath = false;
     public bool barondeath = false;
+    public int addbull;
 
     // Start is called before the first frame update
     void Awake()
@@ -31,6 +32,7 @@ public class Shop : MonoBehaviour
         balance = 0;
         addDmg = 0;
         addHP = 0;
+        addbull = 0;
     }
 
     // Update is called once per frame
@@ -48,26 +50,36 @@ public class Shop : MonoBehaviour
 
     public void updmg()
     {
-        if (balance >= 10)
+        if (balance >= 20)
         {
             AudioManager.Instance.PlaySFX("ChaChing");
             addDmg += 20;
-            balance -= 10;
-            CoinCounter.AddToScore(-10);
+            balance -= 20;
+            CoinCounter.AddToScore(-20);
         }
     }
 
     public void upHP()
     {
-        if (balance >= 10)
+        if (balance >= 20)
         {
             AudioManager.Instance.PlaySFX("ChaChing");
             addHP += 50;
-            balance -= 10;
-            CoinCounter.AddToScore(-10);
+            balance -= 20;
+            CoinCounter.AddToScore(-20);
         }
     }
 
+    public void upAmmo()
+    {
+        if (balance >= 20)
+        {
+            AudioManager.Instance.PlaySFX("ChaChing");
+            addbull += 2;
+            balance -= 20;
+            CoinCounter.AddToScore(-20);
+        }
+    }
     public int getDmg()
     {
         return addDmg;
@@ -78,6 +90,10 @@ public class Shop : MonoBehaviour
         return addHP;
     }
 
+    public int getAmmo()
+    {
+        return addbull;
+    }
 
     private void incBal(int amount)
     {

@@ -39,6 +39,8 @@ public class Gunner : MonoBehaviour
     public LineRenderer shield;
     public Text Heal;
     public Text Shield;
+    public Text Reload;
+    int maxAmmo;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,7 @@ public class Gunner : MonoBehaviour
         health_bar.slider.maxValue = hp;
         health_two.slider.maxValue = hp;
         health_three.slider.maxValue = hp;
+        maxAmmo = 6 + Shop.Singleton.getAmmo();
     }
      
     // Update is called once per frame
@@ -201,7 +204,7 @@ public class Gunner : MonoBehaviour
         actChar = 2;
         baseColor.color = Color.blue;
         info.speed = 3;
-        info.jumpPower = 6;
+        info.jumpPower = 8;
         hp = hptwo;
         health_bar.SetHealthBar(hp);
         health_two.SetHealthBar(hpthree);
@@ -360,7 +363,7 @@ public class Gunner : MonoBehaviour
     private IEnumerator ShootCooldown()
     {
         canShoot = false; // Set to false to prevent shooting
-        if (shotCounter == 6) // Check if it's time to increase cooldown
+        if (shotCounter == maxAmmo) // Check if it's time to increase cooldown
         {
             reloadingStatus.SetActive(true);
             yield return new WaitForSeconds(reloadDuration);
@@ -384,7 +387,7 @@ public class Gunner : MonoBehaviour
         yield return new WaitForSeconds(reloadDuration);
         AudioManager.Instance.PlaySFX("Reload");
         reloadingStatus.SetActive(false);
-        bulletcounter.ChangeAmmo(6);
+        bulletcounter.ChangeAmmo(maxAmmo);
         shotCounter = 0;
         canShoot = true; // Set back to true, allowing shooting again
         shotCounter++; // Increment the shot counter
