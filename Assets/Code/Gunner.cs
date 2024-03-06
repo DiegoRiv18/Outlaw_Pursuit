@@ -61,6 +61,7 @@ public class Gunner : MonoBehaviour
         shield.enabled = false;
         Heal.enabled = false;
         Shield.enabled = false;
+        Reload.enabled = false;
         health_bar.slider.maxValue = hp;
         health_two.slider.maxValue = hp;
         health_three.slider.maxValue = hp;
@@ -169,74 +170,82 @@ public class Gunner : MonoBehaviour
 
     public void switch1()
     {
-        if (actChar == 2)
+        if (actChar != 1)
         {
-            hptwo = hp;
+            if (actChar == 2)
+            {
+                hptwo = hp;
+            }
+            else if (actChar == 3)
+            {
+                hpthree = hp;
+            }
+            actChar = 1;
+            baseColor.color = new Color(1, 0.509804f, 0.1647059f, 1);
+            info.speed = 5;
+            info.jumpPower = 8;
+            hp = hpone;
+            health_bar.SetHealthBar(hp);
+            health_two.SetHealthBar(hptwo);
+            health_three.SetHealthBar(hpthree);
+            Gun.SetActive(true);
+            hp2Co.color = Color.blue;
+            hp3Co.color = Color.yellow;
+            hp1Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
         }
-        else if(actChar == 3)
-        {
-            hpthree = hp;
-        }
-        actChar = 1;
-        baseColor.color = new Color(1, 0.509804f, 0.1647059f, 1);
-        info.speed = 5;
-        info.jumpPower = 8;
-        hp = hpone;
-        health_bar.SetHealthBar(hp);
-        health_two.SetHealthBar(hptwo);
-        health_three.SetHealthBar(hpthree);
-        Gun.SetActive(true);
-        hp2Co.color = Color.blue;
-        hp3Co.color = Color.yellow;
-        hp1Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
-}
+    }
 
     public void switch2()
     {
-        if (actChar == 1)
+        if (actChar != 2)
         {
-            hpone = hp;
+            if (actChar == 1)
+            {
+                hpone = hp;
+            }
+            else if (actChar == 3)
+            {
+                hpthree = hp;
+            }
+            actChar = 2;
+            baseColor.color = Color.blue;
+            info.speed = 3;
+            info.jumpPower = 8;
+            hp = hptwo;
+            health_bar.SetHealthBar(hp);
+            health_two.SetHealthBar(hpthree);
+            health_three.SetHealthBar(hpone);
+            Gun.SetActive(true);
+            hp1Co.color = Color.blue;
+            hp2Co.color = Color.yellow;
+            hp3Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
         }
-        else if (actChar == 3)
-        {
-            hpthree = hp;
-        }
-        actChar = 2;
-        baseColor.color = Color.blue;
-        info.speed = 3;
-        info.jumpPower = 8;
-        hp = hptwo;
-        health_bar.SetHealthBar(hp);
-        health_two.SetHealthBar(hpthree);
-        health_three.SetHealthBar(hpone);
-        Gun.SetActive(true);
-        hp1Co.color = Color.blue;
-        hp2Co.color = Color.yellow;
-        hp3Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
     }
 
     public void switch3()
     {
-        if (actChar == 2)
-        {
-            hptwo = hp;
+        if (actChar != 3){
+            if (actChar == 2)
+            {
+                hptwo = hp;
+            }
+            else if (actChar == 1)
+            {
+                hpone = hp;
+            }
+            actChar = 3;
+            baseColor.color = Color.yellow;
+            info.speed = 7;
+            info.jumpPower = 10;
+            hp = hpthree;
+            health_bar.SetHealthBar(hp);
+            health_two.SetHealthBar(hpone);
+            health_three.SetHealthBar(hptwo);
+            Gun.SetActive(false);
+            hp3Co.color = Color.blue;
+            hp1Co.color = Color.yellow;
+            hp2Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
         }
-        else if (actChar == 1)
-        {
-            hpone = hp;
-        }
-        actChar = 3;
-        baseColor.color = Color.yellow;
-        info.speed = 7;
-        info.jumpPower = 10;
-        hp = hpthree;
-        health_bar.SetHealthBar(hp);
-        health_two.SetHealthBar(hpone);
-        health_three.SetHealthBar(hptwo);
-        Gun.SetActive(false);
-        hp3Co.color = Color.blue;
-        hp1Co.color = Color.yellow;
-        hp2Co.color = new Color(1, 0.509804f, 0.1647059f, 1);
     }
     public void heal(int amt)
     {
@@ -360,13 +369,27 @@ public class Gunner : MonoBehaviour
         Shield.enabled = false;
     }
 
+    private IEnumerator RloadCooldown()
+    {
+        Reload.text = "4";
+        Reload.enabled = true;
+        for (int i = 4; i > 0; i--)
+        {
+            Reload.text = i.ToString();
+            yield return new WaitForSeconds(1);
+        }
+        Reload.enabled = false;
+    }
+
     private IEnumerator ShootCooldown()
     {
         canShoot = false; // Set to false to prevent shooting
         if (shotCounter == maxAmmo) // Check if it's time to increase cooldown
         {
             reloadingStatus.SetActive(true);
+            StartCoroutine(RloadCooldown());
             yield return new WaitForSeconds(reloadDuration);
+            AudioManager.Instance.PlaySFX("Reload");
             reloadingStatus.SetActive(false);
             bulletcounter.ChangeAmmo(6);
             shotCounter = 0;
@@ -384,6 +407,7 @@ public class Gunner : MonoBehaviour
     {
         reloadingStatus.SetActive(true);
         canShoot = false; // Set to false to prevent shooting
+        StartCoroutine(RloadCooldown());
         yield return new WaitForSeconds(reloadDuration);
         AudioManager.Instance.PlaySFX("Reload");
         reloadingStatus.SetActive(false);

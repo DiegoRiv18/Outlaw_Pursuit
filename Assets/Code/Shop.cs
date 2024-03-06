@@ -17,6 +17,7 @@ public class Shop : MonoBehaviour
     public bool harrydeath = false;
     public bool barondeath = false;
     public int addbull;
+    bool capInc;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,6 +34,7 @@ public class Shop : MonoBehaviour
         addDmg = 0;
         addHP = 0;
         addbull = 0;
+        capInc = false;
     }
 
     // Update is called once per frame
@@ -72,13 +74,14 @@ public class Shop : MonoBehaviour
 
     public void upAmmo()
     {
-        if (balance >= 20)
+        if (!capInc && balance >= 20)
         {
             AudioManager.Instance.PlaySFX("ChaChing");
             addbull += 2;
             balance -= 20;
             CoinCounter.AddToScore(-20);
         }
+        capInc = true;
     }
     public int getDmg()
     {

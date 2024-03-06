@@ -8,6 +8,9 @@ public class ProximityText : MonoBehaviour
     public Transform player;
     public float interactionDistance = 3f;
     public GameObject Text;
+    public GameObject Enc;
+    bool already;
+   
 
     private void Start()
     {
@@ -27,6 +30,11 @@ public class ProximityText : MonoBehaviour
             {
                 // Display interaction text and enable canvas
                 Text.SetActive(true);
+                if (!already)
+                {
+                    StartCoroutine(Dialogue());
+                }
+               
             }
             else
             {
@@ -34,5 +42,15 @@ public class ProximityText : MonoBehaviour
                 Text.SetActive(false);
             }
         }
+    }
+
+    private IEnumerator Dialogue()
+    {
+        already = true;
+        yield return new WaitForSeconds(1);
+        Enc.SetActive(true);
+        yield return new WaitForSeconds(5);
+        Enc.SetActive(false);
+        already = false;
     }
 }
