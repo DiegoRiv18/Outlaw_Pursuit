@@ -46,11 +46,14 @@ public class ProximityText : MonoBehaviour
 
     private IEnumerator Dialogue()
     {
-        already = true;
-        yield return new WaitForSeconds(1);
-        Enc.SetActive(true);
-        yield return new WaitForSeconds(5);
-        Enc.SetActive(false);
-        already = false;
+        if (Enc != null)
+        {
+            already = true;
+            yield return new WaitForSeconds(1);
+            Enc.SetActive(true);
+            yield return new WaitForSeconds(5);
+            Enc.SetActive(false);
+            already = false;
+        }
     }
 }
