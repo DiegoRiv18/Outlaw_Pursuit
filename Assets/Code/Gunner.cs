@@ -73,6 +73,10 @@ public class Gunner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Hub")
+        {
+            Gun.SetActive(false);
+        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -80,7 +84,6 @@ public class Gunner : MonoBehaviour
             StartCoroutine(reload());
 
         }
-
 
         //Left Click on mouse
         if (Input.GetButtonDown("Fire1") && canShoot) 
@@ -290,10 +293,6 @@ public class Gunner : MonoBehaviour
 
                 bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletDirection.x, bulletDirection.y) * bullSpeed;
             }
-        }
-        else
-        {
-            Gun.SetActive(false);
         }
     }
 

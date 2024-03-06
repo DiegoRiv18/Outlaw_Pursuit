@@ -33,7 +33,8 @@ public class GunGoon : MonoBehaviour
     {
         if (player != null)
         {
-            if (Mathf.Abs(transform.position.x - player.transform.position.x) < range)
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) < range &&
+                Mathf.Abs(transform.position.y - player.transform.position.y) < 5)
             {
                 if (this.gameObject != null)
                 {

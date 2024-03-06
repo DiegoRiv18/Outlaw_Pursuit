@@ -20,7 +20,8 @@ public class EnemyRevolver : MonoBehaviour
         if(player != null )
         {
             //If the player is to the left/right side of the goon, swap side of gun
-            if (player.transform.position.x < goon.transform.position.x)
+            if (player.transform.position.x < goon.transform.position.x &&
+                Mathf.Abs(transform.position.y - player.transform.position.y) < 5)
             {
                 transform.position = new Vector2(goonPos.x - 1.1f, goonPos.y);
                 if (!flipped)
